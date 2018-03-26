@@ -22,3 +22,12 @@
   </body>
 </html>
 ```
+
+
+```javascript
+//app.js
+var what = React.createElement( "h1",  null,  "Hello, world!" );
+var where =  document.getElementById("outputArea");
+
+ReactDOM.render( what , where );
+```
