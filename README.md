@@ -109,3 +109,36 @@ For example, class becomes className in JSX, and tabindex becomes tabIndex.
 	setInterval(myAutoUpdateTime, 1000);
 </script>
 ```
+
+
+
+## How to use same component multiple times
+we created 'myMany' component that can renders Message component many times
+
+```javascript
+...
+<div id="app"></div>
+...
+<script type="text/babel">
+		function Message(props){
+			return  <div>
+					Hello, <strong>{props.name}</strong> your id is <mark>{props.uid}</mark>
+					</div>;
+				
+		}
+		
+		function myMany() {
+		  return (
+			<div>
+			  <Message name="Alex" uid="44" />
+			  <Message name="Eliza" uid="77" />
+			</div>
+		  );
+		}
+	
+		ReactDOM.render(
+			<myMany />,
+			document.getElementById('app')
+		);
+</script>
+```
