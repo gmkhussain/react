@@ -113,31 +113,34 @@ For example, class becomes className in JSX, and tabindex becomes tabIndex.
 
 
 ## How to use same component multiple times
-we created 'myMany' component that can renders Message component many times
 
+we created 'MyMany' component that can renders Message component many times
+<b>Note:</b> Use PascalCase for React components, or lowercase for HTML elements, camelCase is incorrect casing.
+
+#### How to add CSS Classes in React component
 ```javascript
 ...
 <div id="app"></div>
 ...
 <script type="text/babel">
 		function Message(props){
-			return  <div>
+			return  <div className={props.clName}>
 					Hello, <strong>{props.name}</strong> your id is <mark>{props.uid}</mark>
 					</div>;
 				
 		}
 		
-		function myMany() {
+		function MyMany() {
 		  return (
 			<div>
-			  <Message name="Alex" uid="44" />
-			  <Message name="Eliza" uid="77" />
+			  <Message name="Alex" uid="44" clName="box box--alex" />
+			  <Message name="Eliza" uid="77" clName="box box--eliza" />
 			</div>
 		  );
 		}
 	
 		ReactDOM.render(
-			<myMany />,
+			<MyMany />,
 			document.getElementById('app')
 		);
 </script>
