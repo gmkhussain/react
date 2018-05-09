@@ -89,3 +89,23 @@ For example, class becomes className in JSX, and tabindex becomes tabIndex.
 </body>
 </html>
 ```
+
+
+
+## Updating Rendered Element in React
+```javascript
+...
+<script type="text/babel">
+	function myAutoUpdateTime() {
+	  const element = (
+		<div>
+		  <h1>Hello, world!</h1>
+		  <h2>It is {new Date().toLocaleTimeString()}.</h2>
+		</div>
+	  );
+	  ReactDOM.render(element, document.getElementById('app'));
+	}
+
+	setInterval(myAutoUpdateTime, 1000);
+</script>
+```
