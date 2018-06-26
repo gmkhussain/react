@@ -196,3 +196,39 @@ Execute action immediately after a component is mounted
 	</script>
 ...
 ```
+
+
+
+
+
+
+
+## How to use Binding with Events in React
+
+Bind with <b>constructor</b> 
+```javascript
+constructor(props){
+	//...
+	this.alertMessage = this.alertMessage.bind(this);
+	//...
+}
+```
+
+Bind with Button in Render
+```html
+<button onClick={ this.alertMessage.bind(this) } >
+```
+
+Use Arrow Function in Render
+```javascript
+	onClick={e => this.handleChange(e)}
+```
+
+
+Use Arrow Function in Class Property
+```javascript
+alertMessage = () => {
+  // call this function from render 
+  // and this.whatever in here works fine.
+};
+```
