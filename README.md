@@ -326,8 +326,8 @@ Note: <b>componentDidMount()</b> execute one time only when load component
 			}
   
 			render(){
-				return <div>
-					<h2>{this.state.name}</h2>
+				return <div className={"info-area " + (this.state.age >= 25 ? 'overAge' : 'underAge')}>
+					<h2 >{this.state.name}</h2>
 					<p>{this.state.age}</p>
 					<p>{this.state.message}</p>
 					<button onClick={this.upEvent}>Up</button>
@@ -337,7 +337,21 @@ Note: <b>componentDidMount()</b> execute one time only when load component
 			
 		}
 		
-		ReactDOM.render(<Welcome   />, document.getElementById('app'));
+		ReactDOM.render(<Welcome />, document.getElementById('app'));
 		
 	</script>
+```
+
+
+
+
+
+## Conditionally applying class attributes in React
+
+```javascript
+//Approach 1:
+<div className={"info-area " + (this.state.age >= 25 ? 'overAge' : 'underAge')}>
+
+//Approach 2: This approach allows you to do neat things like that, rendering either is-overAge or is-underAge
+<div className={`info-area is-${this.state.age >=25 ? 'overAge' : 'underAge'}`}>
 ```
