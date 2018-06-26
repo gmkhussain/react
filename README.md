@@ -232,3 +232,25 @@ alertMessage = () => {
   // and this.whatever in here works fine.
 };
 ```
+
+
+
+
+
+## How to passing data from constructor in Function // How to use Props in Alert
+
+```javascript
+
+	...
+	alertMessage (){
+		
+		alert(this.props.school); /* alert specific props eg. 'school' */
+		alert('props: ' + JSON.stringify(this.props)); /* alert all props in JSON*/
+		
+		alert(this.state.age); /* alert varible from  constructor props */
+	}
+	...
+	
+	ReactDOM.render(<Welcome school="ABC School" grade="A" />, document.getElementById('app'));
+
+```
