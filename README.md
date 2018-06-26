@@ -145,3 +145,54 @@ we created 'MyMany' component that can renders Message component many times
 		);
 </script>
 ```
+
+
+
+
+## How to use State, setState and Lifecycle method in ReactJS
+
+### componentDidMount()
+Execute action immediately after a component is mounted
+
+```
+...
+<script type="text/babel">
+		class Welcome extends React.Component{
+			constructor(props){
+				super(props)
+				this.state = { name: "Alex Josh", age: 28, message:null }
+			}
+			
+			componentDidMount(){
+				this.setState(pstate => {
+					if(pstate.age >=25){
+						return {message: "over 25 !", age: 222 }
+					}else{
+						return {message: "under 25 !" }
+					}
+				});
+			
+				/*
+				if (this.props.age >= 25){
+					this.setState({ message: "under 25 !" });
+				}else{
+					this.setState({ message: "over 25 !" });
+				}
+				*/
+			}
+			
+			render(){
+				return <div>
+					<h2>{this.state.name}</h2>
+					<p>{this.state.age}</p>
+					<p>{this.state.message}</p>
+				</div>
+			}
+			
+		}
+		
+		ReactDOM.render(<Welcome />, document.getElementById('app'));
+		
+	</script>
+...
+```
