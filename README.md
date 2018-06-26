@@ -276,3 +276,68 @@ alertMessage = () => {
 //...
 
 ```
+
+
+
+
+## Event listener base on condition in React
+
+Note: <b>componentDidMount()</b> execute one time only when load component
+
+```javascript
+	<script type="text/babel">
+		class Welcome extends React.Component{
+			constructor(props){
+				super(props)
+				this.state = { name: "Alex Josh", age: 28, message:null }
+				 // This binding is necessary to make `this` work in the callback
+				this.upEvent = this.upEvent.bind(this);
+				this.downEvent = this.downEvent.bind(this);
+			}
+			
+			componentDidMount(){
+				/*componentDidMount() execute one time only when load component*/
+				this.checkAge(this.state.age);
+			}
+			
+			
+			checkAge(age){
+				if(age >=25){
+						this.setState({message: "over 25 !" })
+				}else{
+						this.setState({
+						message: "under 25 !" ,
+						
+						})
+				}			
+			}
+			
+			
+			upEvent(e){
+				const ageState = parseInt(this.state.age)+1;
+				this.setState({age: ageState});
+				this.checkAge(ageState);
+			}
+			
+			downEvent(e){
+				const ageState = parseInt(this.state.age)-1;
+				this.setState({age: ageState});
+				this.checkAge(ageState);
+			}
+  
+			render(){
+				return <div>
+					<h2>{this.state.name}</h2>
+					<p>{this.state.age}</p>
+					<p>{this.state.message}</p>
+					<button onClick={this.upEvent}>Up</button>
+					<button onClick={this.downEvent}>Down</button>
+				</div>
+			}
+			
+		}
+		
+		ReactDOM.render(<Welcome   />, document.getElementById('app'));
+		
+	</script>
+```
