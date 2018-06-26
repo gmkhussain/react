@@ -254,3 +254,25 @@ alertMessage = () => {
 	ReactDOM.render(<Welcome school="ABC School" grade="A" />, document.getElementById('app'));
 
 ```
+
+
+
+
+## How to add custom HTML attributes in React / JSX
+
+```javascript
+//...
+	alertMessage (cEvent){
+		console.log(cEvent);  /*display all event in console*/
+		console.log(cEvent.target.getAttribute('customAttribute')); /*display attribute value */
+	}
+//...
+			render(){
+				return <div>
+//..
+					<button customAttribute="My Custom Event Message" onClick={this.alertMessage.bind(this) } >Click Me</button>
+				</div>
+			}
+//...
+
+```
