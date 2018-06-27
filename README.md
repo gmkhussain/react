@@ -352,6 +352,109 @@ Note: <b>componentDidMount()</b> execute one time only when load component
 //Approach 1:
 <div className={"info-area " + (this.state.age >= 25 ? 'overAge' : 'underAge')}>
 
-//Approach 2: This approach allows you to do neat things like that, rendering either is-overAge or is-underAge
+//Approach 2: This approach allows you to do neat things like that, rendering either is-overAge or is-hidden
 <div className={`info-area is-${this.state.age >=25 ? 'overAge' : 'underAge'}`}>
+```
+
+
+
+
+
+
+
+
+
+
+
+## Fetch data through local JSON file in ReactJS
+
+content of 'data.json'
+```javascript
+{ 
+"items":[{
+		"id": 1,
+		"name": "Alex Josh",
+		"dob": 1990
+	},
+	{
+		"id": 2,
+		"name": "James Robert",
+		"dob": 2002
+	}
+]
+}
+```
+
+
+
+```javascript
+<script type="text/babel">
+	class MyComponent extends React.Component {
+	  constructor(props) {
+		super(props);
+			this.state = {
+			  error: null,
+			  isLoaded: false,
+			  items: []
+			};
+	  }
+
+  componentDidMount() {
+    
+	fetch("data.json")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result.items
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+  
+  
+  
+  
+  
+  render() {
+    
+	const { error, isLoaded, items } = this.state;
+	
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <ul>
+          {items.map(item => (
+            <li key={item.name}>
+              {item.name} 
+			   {item.dob}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+  }
+  
+  
+  
+  
+  
+}
+		
+		ReactDOM.render(<MyComponent />, document.getElementById('app'));
+		
+</script>
 ```
