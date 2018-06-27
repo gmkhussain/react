@@ -458,3 +458,36 @@ content of 'data.json'
 		
 </script>
 ```
+
+
+
+
+
+
+
+## How to Use If… Else Statements in React
+
+```javascript
+	<script type="text/babel">
+
+		function UserGreeting(props){
+			return <h1>Welcome Back User!</h1>
+		}
+		
+		function GusetGreeting(props){
+			return <h1>Welcome Guest!</h1>
+		}
+		
+		function Greetings(props)		{
+			const isLoggedIn = props.isLoggedIn;
+			if(isLoggedIn){
+				return <UserGreeting />
+			}else{
+				return <GusetGreeting />
+			}
+		}
+				
+		ReactDOM.render (<Greetings isLoggedIn="true" />, document.getElementById('app'));
+	
+	</script>
+```
