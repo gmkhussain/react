@@ -491,3 +491,64 @@ content of 'data.json'
 	
 	</script>
 ```
+
+
+
+
+
+
+## On button click conditional rendering in React
+```javascript
+
+function LogoutBtn(props) {
+  return <button onClick={props.onClick}>Logout</button>;
+}
+
+function LoginBtn(props) {
+  return <button onClick={props.onClick}> Login </button>;
+}
+
+
+
+
+
+class LoginControl extends React.Component {
+  constructor(props) {
+    super(props);
+    this.loginEvent = this.loginEvent.bind(this);
+    this.logoutEvent = this.logoutEvent.bind(this);
+    this.state = { isLoggedIn: false }; /* defined deafult value */
+  }
+
+  loginEvent(e) {
+    this.setState({ isLoggedIn: true });
+  }
+
+  logoutEvent(e) {
+    this.setState({ isLoggedIn: false });
+  }
+
+  render() {
+    const btn = this.state.isLoggedIn ? (
+      <LogoutBtn onClick={this.logoutEvent} />
+    ) : (
+      <LoginBtn onClick={this.loginEvent} />
+    );
+
+    const login_message = this.state.isLoggedIn ? (
+      <h2>Wecome User</h2>
+    ) : (
+      <h2>Please Login</h2>
+    );
+
+    return (
+      <div>
+        {btn}
+        {login_message}
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<LoginControl />, document.getElementById("app"));
+```
