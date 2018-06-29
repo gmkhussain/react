@@ -599,3 +599,90 @@ ReactDOM.render(<LoginControl />, document.getElementById("app"));
 	
 	</script>
 ```
+
+
+
+
+
+## Send input data from React / axios to PHP
+PHP Script Receive Data from axios's Request in React Action Function
+
+
+### Front  
+(React file)
+```javascript
+<script type="text/babel">
+
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {uname: 'Amoos',email: 'home@world.com'};
+	this.handleChange = this.handleChange.bind(this);
+	this.handleEmail = this.handleEmail.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({uname: event.target.value});
+  }
+  
+  handleEmail(event) {
+    this.setState({email: event.target.value});
+  }
+
+  handleSubmit(event) {
+    console.log('A name was submitted: ' + this.state.uname);
+	console.log('A email was submitted: ' + this.state.email);
+    event.preventDefault();
+	
+	   const params = {
+		    username: this.state.uname,
+            email: this.state.email
+        };
+
+		 console.log('-->', params );
+		 
+		axios.post(
+		'http://localhost/ra1/submit.php',
+		params,
+		{
+			//headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+			 headers: { 'content-type': 'application/json', },
+		})
+
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" name="username" value={this.state.value} onChange={this.handleChange} />
+		  <input type="text" name="email" value={this.state.value} onChange={this.handleEmail} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(<NameForm />, document.getElementById('app'));
+	
+</script>
+```
+
+
+### Back 
+(PHP file)
+
+```php
+<?php
+
+$_POST = json_decode(file_get_contents('php://input'), true);
+ 
+var_dump($_POST)
+
+?>
+```
+
+Note: Check response in Google Chrome debugging tool ( Network Tab )
