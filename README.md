@@ -552,3 +552,50 @@ class LoginControl extends React.Component {
 
 ReactDOM.render(<LoginControl />, document.getElementById("app"));
 ```
+
+
+
+
+
+
+
+
+## Instantly print value of input field in React
+```javascript
+<script type="text/babel">
+
+	class InstantlyPrintForm extends React.Component{
+		
+		constructor(props){
+			super(props);
+			this.state = { 
+				username:'Please Type Your Name',
+				email: 'Whats Your Email ?'
+			};
+			
+			this.handleChange = this.handleChange.bind(this);
+		}
+		
+		handleChange(e){
+			const myName = e.target.name;
+			this.setState({[myName]: e.target.value});
+			//alert(this.state.username);
+		}
+		
+		render(){
+			return <form>
+				<input name="username" onChange={this.handleChange} />
+				<span>{this.state.username}</span>
+				<br/>
+				<input name="email" onChange={this.handleChange} />
+				<span>{this.state.email}</span>
+			</form>
+		}
+		
+	}
+
+
+	ReactDOM.render(<InstantlyPrintForm />, document.getElementById('app'));
+	
+	</script>
+```
