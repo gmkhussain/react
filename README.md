@@ -616,28 +616,33 @@ PHP Script Receive Data from axios's Request in React Action Function
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {uname: 'Amoos',email: 'home@world.com'};
-	this.handleChange = this.handleChange.bind(this);
-	this.handleEmail = this.handleEmail.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+			uname: 'Amoos',
+			email: 'home@world.com'
+		};
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({uname: event.target.value});
-  }
-  
-  handleEmail(event) {
-    this.setState({email: event.target.value});
-  }
 
-  handleSubmit(event) {
-    console.log('A name was submitted: ' + this.state.uname);
-	console.log('A email was submitted: ' + this.state.email);
+  onFormSubmit(event) {
+
+  	/*
+		Get all form data value with one onChange/onSubmit handler
+		all varible start from 'm_*' we considered as memory varible
+	*/
+	const m_uname = event.target.uname.value;
+	const m_email = event.target.email.value;
+
+	// console values
+	console.log('Username:', m_uname);
+	console.log('Email:', m_email);
+	
+	
     event.preventDefault();
 	
 	   const params = {
-		    username: this.state.uname,
-            email: this.state.email
+			uname: m_uname,
+            email: m_email
         };
 
 		 console.log('-->', params );
