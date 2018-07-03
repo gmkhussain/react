@@ -691,3 +691,32 @@ var_dump($_POST)
 ```
 
 Note: Check response in Google Chrome debugging tool ( Network Tab )
+
+
+
+
+
+
+
+
+
+
+
+
+## Get Started with ReactJS CLI
+
+1. First install the global package: 
+```
+npm install -g create-react-app
+```
+
+2. Open project location then open CMD and type
+```
+create-react-app your-project-name
+```
+once it’s done, you can see created folder named 'your-project-name'
+
+
+3. Type <kbd>npm start</kbd> starting the Server 
+
+
