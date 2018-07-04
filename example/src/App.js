@@ -4,7 +4,7 @@ import './App.css';
 
 class TestMessage extends Component{
 	render(){
-		return <h2>{this.props.testMessageContent}</h2>
+		return <div className="box"><h2><small>To: {this.props.messageTo}</small> <br/>{this.props.testMessageContent} </h2></div>
 	}
 }
 

@@ -26,3 +26,5 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.box{ width:20%; float:left; border:1px solid #777; }
