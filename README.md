@@ -718,5 +718,6 @@ once it’s done, you can see created folder named 'your-project-name'
 
 
 3. Type <kbd>npm start</kbd> starting the Server 
+browser will automatically open with localhost:3000
 
 
