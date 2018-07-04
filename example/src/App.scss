@@ -1,0 +1,42 @@
+@mixin transform($property) {
+  /*
+	mixin: allow to reuse group of css attributes
+	Usage: @include transform(rotate(-10deg));
+  */	
+  -webkit-transform: $property;
+      -ms-transform: $property;
+          transform: $property;
+}
+
+
+
+%box-common-style {
+  /*
+	Extend/Inheritance
+	Usage: @extend %box-common-style;
+  */
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+
+
+
+
+div{ 
+	color: orange;
+
+	h2{
+		color: blue;
+		@extend %box-common-style;
+		
+		@include transform(rotate(-10deg)); 	
+		
+		small{
+			@extend %box-common-style;
+			color:pink;
+		}
+	}
+}
+
