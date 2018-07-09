@@ -51,3 +51,81 @@ npm install --save npm-run-all
 ```
 
 4. Add SCSS file <code>App.scss</code> next to CSS file.
+
+
+
+
+
+
+
+
+## Updating state value in React ( Digital Ticking Clock )
+
+Create <code>My_clock.js</code>
+
+```javascript
+//My_clock.js
+import React, { Component } from 'react';
+
+class Clock extends Component{
+	
+	constructor(props){
+		super(props);
+		this.state = {
+			currentTime: new Date().toLocaleString()
+		}
+		this.updateTime();
+	}
+	
+	
+	/**updating time**/
+		updateTime(){
+			setInterval(() => {
+				this.setState({
+					currentTime : new Date().toLocaleString()
+				})			
+			}, 1000)
+		}
+	/**./updating time**/	
+	
+	
+	render(){
+		return(
+			<h1>{this.state.currentTime}</h1>
+		)
+	}
+
+}
+
+export default Clock;
+```
+
+
+
+
+```javascript
+//index.js
+...
+import Clock from './My_clock'; /*import Clock Class from My_clock.js */
+...
+
+ReactDOM.render(
+	<div>
+		<Clock /> /** display here **/
+	</div>
+, document.getElementById('root'));
+
+```
+
+
+
+
+
+
+
+
+
+# Common mistakes in React
+* <kbd>component</kbd> should start with CAPITAL 'C' <kbd>Component</kbd>
+
+* Don't use <code>=</code> in setState, Use <code>:</code> instead of '='
