@@ -1,7 +1,7 @@
 # <img src="https://blog-assets.risingstack.com/2016/Jan/react_best_practices-1453211146748.png" style="position: relative; top: 5px;" height="80" /> 
 
 
-## Get Started with ReactJS CLI
+## Get Started with ReactJS CLI ⚛️
 
 1. First install the global package: 
 ```
@@ -116,6 +116,54 @@ ReactDOM.render(
 , document.getElementById('root'));
 
 ```
+
+
+
+
+
+
+
+## Stateless functional components in React
+
+#### Stateless
+You should default to using <b>stateless</b> components. Since they use no state, it's very easy to tell when a component should be re-rendered, since they will display the same thing if their props do not change.
+
+#### Statefull
+You should use <b>stateful</b> components when you need to use setState or when you need to use lifecycle hooks.
+
+
+
+
+1. Create new file 'My_stateless.js'
+```javascript
+//My_stateless.js
+import React from 'react'; /* not important import Component in Stateless Component */
+
+function MyStatelessClock(props){
+    return <div>My Stateless Clock: {props.time}</div>
+}
+
+
+export default MyStatelessClock;
+```
+
+
+2. Modify 'My_clock.js'
+```javascript
+...
+import MyStatelessClock from './My_stateless';
+...
+	render(){
+		return(
+		 ...
+			<MyStatelessClock time={this.state.currentTime} /> /**<- add this code**/
+		 ...
+		)
+	}
+...
+```
+
+
 
 
 
