@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import MyStatelessClock from './My_stateless';
+import MyStatelessAnalog from './My_stateless_analog';
 
 class Clock extends Component{
 
 	constructor(props){
 		super(props);
 		this.state = {
-			currentTime: new Date().toLocaleTimeString()
+			currentTime: new Date().toLocaleString()
 		}
 		this.updateTime();
 	}
@@ -17,7 +18,7 @@ class Clock extends Component{
 			
 			setInterval(() => {
 				this.setState({
-					currentTime : new Date().toLocaleTimeString()
+					currentTime : new Date().toLocaleString()
 				})			
 			}, 1000)
 			
@@ -28,8 +29,10 @@ class Clock extends Component{
 	
 	render(){
 		return(
-			//<h1>{this.state.currentTime}</h1>
-			<MyStatelessClock time={this.state.currentTime} />
+			<div>
+				<MyStatelessClock time={this.state.currentTime} />
+				<MyStatelessAnalog time={this.state.currentTime} />
+			</div>
 		)
 	}
 
