@@ -274,6 +274,24 @@ export default MyStatelessAnalog;
 
 
 
+## LifeCycle while component updating
+```javascript
+componentWillReceiveProps(nextProps){
+    console.log("Next Props: ", nextProps);
+}
+
+
+shouldComponentUpdate(newProps, newState){
+    console.log("should component update");
+    console.log("New Props", newProps);
+    console.log("New State", newState);
+    return true; 
+    /* return false -> component updating in background but should not display on view */
+}
+```
+NOTE: `componentDidUpdate()` will not works if `shouldComponentUpdate()` has `returns false`
+
+
 
 
 
