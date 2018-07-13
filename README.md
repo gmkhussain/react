@@ -117,6 +117,15 @@ ReactDOM.render(
 
 ```
 
+Props | State |
+-------- | -------- |
+Props are read-only | state changes can be asynchronous
+Props can not be modified | state can be modified using `this.setState`
+
+
+
+
+
 
 
 
@@ -274,3 +283,8 @@ export default MyStatelessAnalog;
 * <kbd>component</kbd> should start with CAPITAL 'C' <kbd>Component</kbd>
 
 * Don't use <code>=</code> in setState, Use <code>:</code> instead of '='
+
+* missing `return(<div>...</div>)` in render `render(){ (<div>...</div> )}`
+
+
+`'Component' is not defined  no-undef` make sure `{ Component }` added here `import React, { Component } from 'react';`
