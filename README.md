@@ -317,6 +317,64 @@ NOTE: `componentDidUpdate()` will not works if `shouldComponentUpdate()` has `re
 
 
 
+# Events
+
+## Increment and Decrease number onClick in React
+
+```javascript
+import React, { Component } from 'react';
+
+class MyEvent extends Component{
+
+    constructor(props){
+        super(props);
+        this.state = {
+            counter: 1
+        }
+        this.incrementHandler = this.incrementHandler.bind(this);
+        this.decrementHandler = this.decrementHandler.bind(this);
+    }
+
+    
+    incrementHandler(){
+        this.setState(
+            {
+            counter: this.state.counter + 1
+            }   
+        )
+    }
+
+
+    decrementHandler(){
+        this.setState(
+            {
+            counter: this.state.counter - 1
+            }   
+        )
+    }
+
+
+    render(){
+        return(
+            <div>
+                <button onClick={this.incrementHandler}>Counter +</button>
+                <span className="counter"> {this.state.counter} </span>
+                <button onClick={this.decrementHandler}>Counter -</button>
+            </div>
+        )
+    }
+
+}
+
+export default MyEvent;
+```
+
+
+
+
+
+
+
 
 
 
@@ -354,4 +412,28 @@ class TestMessage extends Component{
 * missing `return(<div>...</div>)` in render `render(){ (<div>...</div> )}`
 
 
-`'Component' is not defined  no-undef` make sure `{ Component }` added here `import React, { Component } from 'react';`
+* `'Component' is not defined  no-undef` make sure `{ Component }` added here `import React, { Component } from 'react';`
+
+* Use ```this.state={...``` instead of ```state:{...```
+```javascript
+//Wrong
+...
+	super(props);
+        state : {
+            counter: 1
+        }
+...
+```
+	
+```javascript
+//Right
+...
+	super(props);
+        this.state = {
+            counter: 1
+        }
+...
+```
+<b>Note</b> Also make sure event handler binded in constructor like this -> ```this.myEventHandler = this.myEventHandler.bind(this);``` i
+	
+	
