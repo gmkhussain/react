@@ -288,6 +288,30 @@ shouldComponentUpdate(newProps, newState){
     return true; 
     /* return false -> component updating in background but should not display on view */
 }
+
+
+componentWillUpdate(newProps, newState){
+	//just before update component
+}
+
+
+componentDidUpdate(oldProps, oldState){
+	//just after update component
+	console.log("component did update");
+}
+
+
+componentDidMount()(newProps, newState){
+	//just after render component
+	console.log("component did mount");
+}
+
+
+componentWillUnmount()(){
+	//just after render component
+	console.log("component will Unmount just before end or destroyed *trigger when component out of screen ");
+}
+
 ```
 NOTE: `componentDidUpdate()` will not works if `shouldComponentUpdate()` has `returns false`
 
