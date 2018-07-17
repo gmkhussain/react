@@ -8,6 +8,10 @@ const myStyle = {
 
 class TestMessage extends Component{
 
+	componentWillMount(){
+		document.title = "My Title"
+	  }
+
 	render(){
 		return <div className="box">
 			<h2>

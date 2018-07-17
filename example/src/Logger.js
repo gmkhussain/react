@@ -26,7 +26,7 @@ class Logger extends Component{
     }
 
 
-    componentWillUnmount()(){
+    componentWillUnmount(){
         //just after render component
         console.log("component will Unmount just before end or destroyed *trigger when component out of screen ");
     }

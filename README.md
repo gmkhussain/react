@@ -320,6 +320,31 @@ NOTE: `componentDidUpdate()` will not works if `shouldComponentUpdate()` has `re
 
 
 
+## How to set the document title in React
+```javascript
+...
+class TestMessage extends Component{
+	
+	componentWillMount(){
+		document.title = "My Title"
+	}
+
+  render(){
+		return(
+			<b> test </b>
+		      )
+		  }
+  
+  
+}
+```
+
+
+
+
+
+
+
 
 # Common mistakes in React
 * <kbd>component</kbd> should start with CAPITAL 'C' <kbd>Component</kbd>
