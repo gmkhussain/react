@@ -26,7 +26,8 @@ class MyForm extends Component{
     arrayHandler(event){
         let currentUser = this.state.allusers;
         console.log(currentUser);
-        currentUser.push(this.state.username);
+        currentUser.push(this.state.username); //<-- without <span> element
+        //currentUser.push(<span className="btn-primary">{this.state.username}</span>);  //<-- with <span> element
         this.setState({
             allusers: currentUser,
             username: ''
