@@ -498,6 +498,82 @@ export default MyForm;
 
 
 
+
+### How to use radio buttons in ReactJS
+```
+...
+    constructor(props){
+        super(props);
+...
+            devtype:{
+                MEANStack: false,
+                MERNStack: true,
+                LAMPStack: false
+            }
+        }
+...
+	this.radioHandler = this.radioHandler.bind(this);
+...
+    }
+
+
+...
+
+    radioHandler(event){
+        console.log(event.target.value);
+        let devtype = this.devtype; 
+        
+        for (var key in devtype){
+            devtype[key] = false /* reset previous values */
+        }
+
+        devtype[event.target.value] = event.target.checked
+        // this.setState({ devtype: event.target.value })
+        this.setState({
+            devtype: devtype
+        })
+    }
+
+
+    render(){
+        return(
+            <div>
+              ...
+
+                <h4>Developer Category</h4>
+              
+                <label>
+                    MEAN Stack <input type="radio" name="devcat" value="MEANStack" checked={this.state.devtype['MEANStack']} onChange={this.radioHandler} />
+                </label>
+                <br/>
+                <label>
+                    MERN Stack <input type="radio" name="devcat" value="MERNStack" checked={this.state.devtype['MERNStack']} onChange={this.radioHandler} />
+                </label>
+                <br/>
+                <label>
+                    LAMP Stack <input type="radio" name="devcat" value="LAMPStack" checked={this.state.devtype['LAMPStack']} onChange={this.radioHandler} />
+                </label>
+
+            </div>
+        )
+    }
+
+}
+
+
+export default MyForm;
+```
+
+
+
+
+
+
+
+
+
+
+
 # Errors / Issues
 
 ### Uncaught TypeError anyVaribleName.push is not a function Error in ReactJS
@@ -510,6 +586,12 @@ this.state={
 }
 ...
 ```
+
+
+
+### TypeError: Cannot set property 'YourValue' of undefined
+
+```this.myStateVarible;``` DONT forget to use <kbd>.state</kbd> before your state varible  ```this.state.myStateVarible;```
 
 
 
@@ -546,4 +628,27 @@ this.state={
 <b>Note</b> Also make sure event handler binded in constructor like this -> ```this.myEventHandler = this.myEventHandler.bind(this);```
 
 
+*
 
+```javascript
+//WRONG
+    radioHandler(){
+	this.setState({
+		devtype: this.setState.target.value
+	})
+	console.log(this.state.devtype);
+}
+```
+
+```javascript
+//RIGTH
+radioHandler(event){
+    console.log(event.target.value);
+    let devtype = this.devtype; 
+        
+    for (var key in devtype){
+		devtype[key] = false /* reset previous values */
+	}
+	devtype[event.target.value] = event.target.checked;
+}
+```
