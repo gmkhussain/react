@@ -436,6 +436,19 @@ export default MyForm;
 
 
 
+# Errors / Issues
+
+### Uncaught TypeError anyVaribleName.push is not a function Error in ReactJS
+```javascript
+...
+this.state={
+	anotherVar: '',
+    anyVaribleName: '' <-- Incorrect syntax .push()
+	anyVaribleName: [] <-- Correct syntax .push()
+}
+...
+```
+
 
 
 # Common mistakes in React
@@ -468,6 +481,7 @@ export default MyForm;
         }
 ...
 ```
-<b>Note</b> Also make sure event handler binded in constructor like this -> ```this.myEventHandler = this.myEventHandler.bind(this);``` i
-	
-	
+<b>Note</b> Also make sure event handler binded in constructor like this -> ```this.myEventHandler = this.myEventHandler.bind(this);```
+
+
+

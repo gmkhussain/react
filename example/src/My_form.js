@@ -8,10 +8,12 @@ class MyForm extends Component{
         super(props);
         
         this.state={
-            username: "amoos jhon"
+            username: '',
+            allusers: []
         }
 
         this.eventHandler = this.eventHandler.bind(this);
+        this.arrayHandler = this.arrayHandler.bind(this);
     }
 
 
@@ -21,12 +23,24 @@ class MyForm extends Component{
         })
     }
 
+    arrayHandler(event){
+        let currentUser = this.state.allusers;
+        console.log(currentUser);
+        currentUser.push(this.state.username);
+        this.setState({
+            allusers: currentUser,
+            username: ''
+        })
+        console.log("Hello : " + this.state.allusers);
+    }
+
 
     render(){
         return(
             <div>
                 <input type="text" name="username" value={this.state.username} onChange={this.eventHandler} />
-                <span>{this.state.username}</span>
+                <button onClick={this.arrayHandler}>Click to Store Username in Array</button>
+                <span>{this.state.allusers}</span>
             </div>
         )
     }
