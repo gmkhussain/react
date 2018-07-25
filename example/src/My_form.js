@@ -14,12 +14,19 @@ class MyForm extends Component{
                 MEANStack: false,
                 MERNStack: true,
                 LAMPStack: false
+            },
+            techtype: {
+                mongodb: false,
+                react: false,
+                express: true,
+                node: false
             }
         }
 
         this.eventHandler = this.eventHandler.bind(this);
         this.arrayHandler = this.arrayHandler.bind(this);
         this.radioHandler = this.radioHandler.bind(this);
+        this.techHandler = this.techHandler.bind(this);
     }
 
 
@@ -45,18 +52,31 @@ class MyForm extends Component{
 
     radioHandler(event){
         console.log(event.target.value);
-        let devtype = this.devtype; 
+        let devtype = this.state.devtype; 
         
         for (var key in devtype){
             devtype[key] = false /* reset previous values */
         }
 
-        devtype[event.target.value] = event.target.checked
+        devtype[event.target.value] = event.target.checked;
         // this.setState({ devtype: event.target.value })
         this.setState({
             devtype: devtype
         })
     }
+
+
+
+
+    techHandler(event){
+        let tech = this.state.techtype;
+        tech[event.target.value] = event.target.checked;
+        this.setState({
+            techtype: tech
+        })
+    }
+
+
 
 
     render(){
@@ -79,6 +99,26 @@ class MyForm extends Component{
                 <label>
                     LAMP Stack <input type="radio" name="devcat" value="LAMPStack" checked={this.state.devtype['LAMPStack']} onChange={this.radioHandler} />
                 </label>
+
+
+
+            <h4>Technogies</h4>
+              
+              <label>
+                  MongoDB <input type="checkbox" name="tech" value="mongodb" checked={this.state.techtype['mongodb']} onChange={this.techHandler} />
+              </label>
+              <br/>
+              <label>
+                Express <input type="checkbox" name="tech" value="express" checked={this.state.techtype['express']} onChange={this.techHandler} />
+              </label>
+              <br/>
+              <label>
+                ReactJS <input type="checkbox" name="tech" value="react" checked={this.state.techtype['react']} onChange={this.techHandler} />
+              </label>
+              
+              <label>
+                NodeJS <input type="checkbox" name="tech" value="node" checked={this.state.techtype['node']} onChange={this.techHandler} />
+              </label>
 
             </div>
         )
