@@ -634,7 +634,7 @@ export default MyForm;
 
 
 ## How to use select buttons in ReactJS
-```
+```javascript
 ...
     constructor(props){
         super(props);
@@ -676,6 +676,46 @@ export default MyForm;
 
 export default MyForm;
 ```
+
+
+
+## Refs in React: NOT recommended is Uncontrolled
+
+```javascript
+import React, { Component } from 'react';
+
+class MyForm extends Component{
+
+    constructor(props){
+        super(props);
+        
+        this.state={
+            useremail: ''
+        }
+
+        this.emailHandler = this.emailHandler.bind(this);
+    }
+
+
+    emailHandler(){
+        console.log(this.refs.userEmail.value); //<-- Ref NOT recommended is Uncontrolled
+    }
+
+
+    render(){
+        return(
+            <div>
+                <input type="email" ref="userEmail" />
+                <button onClick={this.emailHandler}>Submit</button>
+            </div>
+        )
+    }
+}
+
+export default MyForm;
+```
+
+
 
 
 
