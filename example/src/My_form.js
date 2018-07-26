@@ -20,13 +20,15 @@ class MyForm extends Component{
                 react: false,
                 express: true,
                 node: false
-            }
+            },
+            selectValue: ''
         }
 
         this.eventHandler = this.eventHandler.bind(this);
         this.arrayHandler = this.arrayHandler.bind(this);
         this.radioHandler = this.radioHandler.bind(this);
         this.techHandler = this.techHandler.bind(this);
+        this.selectHandler = this.selectHandler.bind(this);
     }
 
 
@@ -77,6 +79,12 @@ class MyForm extends Component{
     }
 
 
+    selectHandler(event){
+        this.setState({
+            selectValue: event.target.value
+        })   
+    }
+
 
 
     render(){
@@ -119,6 +127,17 @@ class MyForm extends Component{
               <label>
                 NodeJS <input type="checkbox" name="tech" value="node" checked={this.state.techtype['node']} onChange={this.techHandler} />
               </label>
+
+
+
+                <h4>Select Favourate Language</h4>
+
+                <select value={this.state.selectValue} onChange={this.selectHandler}>
+                    <option>Ruby</option>
+                    <option>PHP</option>
+                    <option>ASP .NET</option>
+                </select>
+                {this.state.selectValue}
 
             </div>
         )
