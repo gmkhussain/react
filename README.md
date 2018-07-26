@@ -633,6 +633,52 @@ export default MyForm;
 
 
 
+## How to use select buttons in ReactJS
+```
+...
+    constructor(props){
+        super(props);
+        
+        this.state={
+		...
+            selectValue: ''
+        }
+		...
+        this.selectHandler = this.selectHandler.bind(this);
+    }
+
+
+    selectHandler(event){
+        this.setState({
+            selectValue: event.target.value
+        })   
+    }
+
+
+    render(){
+        return(
+            <div>
+                ...
+
+                <h4>Select Favourate Language</h4>
+
+                <select value={this.state.selectValue} onChange={this.selectHandler}>
+                    <option>Ruby</option>
+                    <option>PHP</option>
+                    <option>ASP .NET</option>
+                </select>
+                {this.state.selectValue}
+
+            </div>
+        )
+    }
+}
+
+export default MyForm;
+```
+
+
+
 
 
 
