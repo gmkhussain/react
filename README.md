@@ -788,6 +788,36 @@ ReactDOM.render(
 
 
 
+## Basic Navigation components in ReactJS Router
+
+
+1. Create '.layout/navbar.js' file
+```javascript
+import React from 'react';
+import { Link } from 'react-router-dom'; //<-- Just import 'Link' only as we need
+
+const Navbar = () => (
+    <ul>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='about'>About</Link></li>
+    </ul>
+)
+
+export default Navbar;
+```
+
+
+2.
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -870,4 +900,26 @@ radioHandler(event){
 	}
 	devtype[event.target.value] = event.target.checked;
 }
+```
+
+
+
+* Don't use ```Return(...)`` inside Routing Arrow function in ReactJS
+//WRONG
+```
+const Navbar = () =>{ //<--DONT use curly brackets
+    return( //<--DONT add return() here
+
+    )
+} 
+```
+
+//Right
+<b>Note:</b> use round brackets ```const Navbar = () => (...)``` instead of curly brackets ```const Navbar = () => {...}```
+```
+const Navbar = () =>(
+ <ul>
+	<li><Link to="your-link">Your Text</Link></li>
+ </ul>
+)
 ```
