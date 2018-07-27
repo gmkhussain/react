@@ -721,6 +721,72 @@ export default MyForm;
 
 
 
+# <img src="https://seeklogo.com/images/R/react-router-logo-AB5BFB638F-seeklogo.com.png" height="80" /> React Route: One Router to Rule Them All
+
+### Install React route
+Open command line and type <kbd>npm install --save react-router-dom</kbd>
+
+
+1. Create ```src/Routes.js``` file
+```javascript
+import React from 'react';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import App from './App';
+import AboutPage from './layout/about'; // <-- about.js imported form '/about' route 
+
+const MyRoutes = () =>(
+    <Router>
+        <div>
+            <Route exact path='/' component={App} /> // <-- 'exact' using to avoid conflict
+            <Route path='/about' component={AboutPage} />
+        </div>
+    </Router>
+)
+
+export default MyRoutes;
+```
+
+
+
+2. Create inner page ```src/layout/about.js```
+
+```javascript
+import React, { Component } from 'react';
+
+class AboutPage extends Component{
+	render(){
+		return(
+            <div>
+                <h2>About Page</h2>
+            </div>
+        )
+	}
+}
+
+export default AboutPage;
+```
+
+
+
+
+3. Modify ```src/index.js```
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MyRoutes from './Routes.js'; //<-- Routes file
+
+ReactDOM.render(
+	<div>
+		<MyRoutes /> //<-- Routes.js component will load here
+	</div>
+, document.getElementById('root'));
+//registerServiceWorker();
+```
+
+
+
+
 
 
 

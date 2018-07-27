@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import './App.css';
-//import TestMessage from './App';
-//import Clock from './My_clock';
-//import MyEvent from './My_event';
-import MyForm from './My_form';
+//import './index.css';
+import MyRoutes from './Routes.js';
 
 //import registerServiceWorker from './registerServiceWorker';
 
@@ -17,14 +13,7 @@ ReactDOM.render(
 	*/
 	
 	<div>
-		{/* <Clock />
-		<TestMessage messageTo="Amoos" testMessageContent="This is 1st message" />
-		<TestMessage messageTo="Cruise" testMessageContent="This is 2nd message" />
-		<TestMessage messageTo="James" testMessageContent="This is 3rd message" />
-		<TestMessage messageTo="Robert" testMessageContent="This is 4th message" /> 
-		<MyEvent />
-		*/}
-		<MyForm />
+		<MyRoutes />
 	</div>
 , document.getElementById('root'));
 //registerServiceWorker();

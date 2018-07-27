@@ -15,9 +15,8 @@ class TestMessage extends Component{
 	render(){
 		return <div className="box">
 			<h2>
-				<small style={myStyle}>To: {this.props.messageTo}</small>
-				<br/>{this.props.testMessageContent}
-				</h2>
+			Main / Home Page
+			</h2>
 		</div>
 	}
 }

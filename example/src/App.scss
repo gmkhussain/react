@@ -31,7 +31,7 @@ div{
 		color: blue;
 		@extend %box-common-style;
 		
-		@include transform(rotate(-10deg)); 	
+		@include transform(rotate(0deg)); 	
 		
 		small{
 			@extend %box-common-style;
