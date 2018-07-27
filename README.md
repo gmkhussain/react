@@ -944,6 +944,26 @@ export default Navbar;
 ```
 
 
+### Warning: <BrowserRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { BrowserRouter as Router }`.
+```
+...
+import { Router, Route } from 'react-router-dom'; //<-- Instead of { BrowserRouter as Router } used { Router } only
+...
+import createBrowserHistory from 'history/createBrowserHistory';
+
+const customHistory = createBrowserHistory();
+
+const MyRoutes = () =>(
+    <Router history={customHistory}>
+        ...
+```
+
+
+
+
+
+
+
 
 
 
