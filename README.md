@@ -807,7 +807,118 @@ export default Navbar;
 ```
 
 
-2.
+2. Modify ```Routes.js```
+
+```javascript
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import App from './App';
+import AboutPage from './layout/about';
+import Navbar from './layout/navbar';
+
+const MyRoutes = () =>(
+    <Router>
+        <div>
+            <Navbar /> //<-- Added navigation here
+            <hr />
+            <Route exact path='/' component={App} />
+            <Route path='/about' component={AboutPage} />
+        </div>
+    </Router>
+)
+
+export default MyRoutes;
+```
+
+
+
+
+
+
+## Navigation with password function
+
+1. Create ```layout/login.js```
+
+```javascript
+import React, { Component } from 'react';
+
+class LoginPage extends Component{
+
+    constructor(props){
+        super(props)
+        this.state={
+            pass:''
+        }
+        this.eventHandler = this.eventHandler.bind(this);
+    }
+
+    loginHandler(event){
+
+        this.setState({
+            pass: event.target.value
+        })
+
+        var passCheck = this.state.pass; //<-- storing updated password in var
+
+        if(passCheck === "mypass"){
+            this.props.history.push('/'); //<-- .push('your-next-url')
+        }else{
+            alert(passCheck+ " please try agian!");
+        }
+    }
+
+    eventHandler(event){
+        this.setState({
+            pass: event.target.value
+        })
+    }
+
+	render(){
+		return(
+            <div>
+                <h2>Login Page</h2>
+                <input type="text" name="pass" value={this.state.pass} onChange={this.eventHandler} />
+                <button onClick={this.loginHandler.bind(this)}>Login</button>
+                
+                <p>Correct password: 'mypass'</p>
+            </div>
+        )
+	}
+}
+
+export default LoginPage;
+```
+
+
+
+2. Modify ```Route.js```
+```javascript
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import App from './App';
+import AboutPage from './layout/about'; 
+import LoginPage from './layout/login';  //<-- Login imported here
+import Navbar from './layout/navbar';
+import createBrowserHistory from 'history/createBrowserHistory';
+
+const customHistory = createBrowserHistory(); //<-- creating History
+
+const MyRoutes = () =>(
+    <Router histor={customHistory}> //<-- history called on Router
+        <div>
+            <Navbar />
+            
+            <hr />
+
+            <Route exact path='/' component={App} />
+            <Route path='/about' component={AboutPage} />
+            <Route path='/login' component={LoginPage} /> //<-- Added Login Route here
+        </div>
+    </Router>
+)
+
+export default MyRoutes;
+```
 
 
 
@@ -815,6 +926,22 @@ export default Navbar;
 
 
 
+3. Add login link in ```navbar.js```
+```javascript
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Navbar = () => (
+    
+    <ul>
+		...
+		<li><Link to='login'>Login</Link></li>
+    </ul>
+   
+)
+
+export default Navbar;
+```
 
 
 
