@@ -1097,8 +1097,62 @@ export default LoginPage;
 ```
 
 
+### Creating 404 Page with React Router
+
+1. Create ```layout/notfounde.js```
+```javascript
+import React, { Component } from 'react';
+
+class NotFoundPage extends Component{
+
+	render(){
+		return(
+            <div>
+                <h2>NOT FOUND</h2>
+            </div>
+        )
+	}
+}
+
+export default NotFoundPage;
+```
 
 
+2. Modify ```Routes.js```
+
+```javascript
+import React from 'react';
+import { Router, Route, Switch } from 'react-router-dom'; //<-- add <Switch> here
+import App from './App';
+import AboutPage from './layout/about';
+import LoginPage from './layout/login';
+import NotFoundPage from './layout/notfound'; //<-- Not found page
+import Navbar from './layout/navbar';
+import createBrowserHistory from 'history/createBrowserHistory';
+
+const customHistory = createBrowserHistory();
+
+const MyRoutes = () =>(
+    <Router history={customHistory}>
+        <div>
+            
+            <Navbar />
+            
+            <hr />
+            <Switch>
+				<Route exact path='/' component={App} />
+				<Route path='/about/:userid' component={AboutPage} /> {/*<-- userid passed in url */ }
+				<Route path='/login' component={LoginPage} />
+				<Route component={NotFoundPage} /> {/* not found url */}
+            </Switch>
+        </div>
+    </Router>
+)
+
+export default MyRoutes;
+```
+<b>Note:</b> Wrap all Routes inside of a ```Switch``` only the first match will ever be rendered.
+Dont forget to use ```Switch``` NotFound component no matter what path we’re on, because the Route has no path, and if it has no path, it will always be rendered...
 
 
 
