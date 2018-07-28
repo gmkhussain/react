@@ -16,7 +16,7 @@ const MyRoutes = () =>(
             <hr />
 
             <Route exact path='/' component={App} />
-            <Route path='/about' component={AboutPage} />
+            <Route path='/about/:userid' component={AboutPage} /> {/*<-- userid passed in url */ }
             <Route path='/login' component={LoginPage} />
         </div>
     </Router>

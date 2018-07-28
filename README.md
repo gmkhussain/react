@@ -944,20 +944,157 @@ export default Navbar;
 ```
 
 
-### Warning: <BrowserRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { BrowserRouter as Router }`.
-```
-...
-import { Router, Route } from 'react-router-dom'; //<-- Instead of { BrowserRouter as Router } used { Router } only
-...
+
+
+### How to get data according to parameter value from URL with React Router
+Warning: <BrowserRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { BrowserRouter as Router }`.
+
+
+
+##### Routes.js
+```javascript
+import React from 'react';
+import { Router, Route } from 'react-router-dom';
+import App from './App';
+import AboutPage from './layout/about';
+import LoginPage from './layout/login';
+import Navbar from './layout/navbar';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 const customHistory = createBrowserHistory();
 
 const MyRoutes = () =>(
     <Router history={customHistory}>
-        ...
+        <div>
+            <Navbar />
+            
+            <hr />
+
+            <Route exact path='/' component={App} />
+            <Route path='/about/:userid' component={AboutPage} />  {/*<-- userid passed in url */ }
+            <Route path='/login' component={LoginPage} />
+        </div>
+    </Router>
+)
+
+export default MyRoutes;
 ```
 
+
+
+
+
+
+##### About.js
+```javascript
+//About.js
+import React, { Component } from 'react';
+
+
+class AboutPage extends Component{
+
+
+	render(){
+
+        /*User records in JSON format*/
+        let users = {
+            157:{
+                name: "Amoos",
+                cell: "124545"
+            },
+            158:{
+                name: "Ebad",
+                cell: "457587"
+            },
+            159:{
+                name: "Hussain",
+                cell: "59859"
+            }
+        }
+
+        let requiredUser  = users[this.props.match.params.userid] //<-- sorting params to 'requiredUser' varible
+        
+
+		return(
+            <div>
+                <h2>About Page</h2>
+               User ID: {this.props.match.params.userid} *by normal syntax
+               <br/>
+               User Name: {requiredUser.name} *by sorting into variable
+               <br/>
+               User Cell: {requiredUser.cell} *by sorting into variable
+            </div>
+        )
+	}
+}
+
+export default AboutPage;
+```
+
+
+##### Login.js
+```javascript
+//Login.js
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+class LoginPage extends Component{
+
+    constructor(props){
+        super(props)
+        this.state={
+            pass:''
+        }
+        this.eventHandler = this.eventHandler.bind(this);
+    }
+
+    loginHandler(event){
+
+        this.setState({
+            pass: event.target.value
+        })
+
+        var passCheck = this.state.pass; //<-- storing updated password in var
+        
+
+        if(passCheck === "mypass"){
+            this.props.history.push('/about/157'); //<-- .push('your-next-url')
+        }else{
+            alert(passCheck+ " please try agian!");
+        }
+    }
+
+
+    
+    eventHandler(event){
+        this.setState({
+            pass: event.target.value
+        })
+    }
+
+
+
+	render(){
+		return(
+            <div>
+                <h2>Login Page</h2>
+                <input type="text" name="pass" value={this.state.pass} onChange={this.eventHandler} />
+                <button onClick={this.loginHandler.bind(this)}>Login</button>
+                
+                <p>Correct password: 'mypass'</p>
+                
+                <ul>
+                    <li><Link to='/about/158'>About with 158 UserID</Link></li>
+                    <li><Link to='/about/159'>About with 159 UserID</Link></li>
+                 </ul>
+            
+            </div>
+        )
+	}
+}
+
+export default LoginPage;
+```
 
 
 
@@ -971,6 +1108,31 @@ const MyRoutes = () =>(
 
 
 # Errors / Issues
+
+### match.params returns empty even when URL contains params 
+<b>Note:</b> make sure you have added params in ```routes.js```
+
+```javascript
+import React from 'react';
+import { Router, Route } from 'react-router-dom';
+import App from './App';
+import AboutPage from './layout/about';
+...
+import createBrowserHistory from 'history/createBrowserHistory';
+
+const customHistory = createBrowserHistory();
+
+const MyRoutes = () =>(
+    <Router history={customHistory}>
+        <div>
+			...
+            <Route path='/about/:userid' component={AboutPage} />
+        </div>
+    </Router>
+)
+export default MyRoutes;
+```
+
 
 ### Uncaught TypeError anyVaribleName.push is not a function Error in ReactJS
 ```javascript
