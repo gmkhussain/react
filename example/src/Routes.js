@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import App from './App';
 import AboutPage from './layout/about';
 import LoginPage from './layout/login';
@@ -20,6 +20,7 @@ const MyRoutes = () =>(
             <Route exact path='/' component={App} />
             <Route path='/about/:userid' component={AboutPage} /> {/*<-- userid passed in url */ }
             <Route path='/login' component={LoginPage} />
+            <Redirect from="/about-us" to="/about" />
             <Route component={NotFoundPage} />
             </Switch>
         </div>

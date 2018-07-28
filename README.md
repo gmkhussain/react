@@ -1157,6 +1157,29 @@ Dont forget to use ```Switch``` NotFound component no matter what path we’re o
 
 
 
+### Redirecting old URL to new URL in ReactJS
+```
+...
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
+...
+const MyRoutes = () =>(
+    <Router history={customHistory}>
+        <div>
+            <Navbar />
+            <hr />
+            <Switch>
+				...
+				<Redirect from="/old-url" to="/new-url" />
+				<Redirect from="/about-us" to="/about" />
+				<Route component={NotFoundPage} />
+            </Switch>
+        </div>
+    </Router>
+)
+export default MyRoutes;
+```
+
+
 
 
 
