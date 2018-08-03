@@ -1184,6 +1184,53 @@ export default MyRoutes;
 
 
 
+
+
+# <img src="https://kyleshevlin.com/wp-content/uploads/2016/11/redux_logo_2.png" style="position: relative; top: 5px;" height="80" />
+
+### Setting Up Redux with React
+
+1. Add follwing package on ```package.json``` file
+```
+//package.json
+{
+	name:"..."
+	...
+	"dependencies": {
+		...
+		"react-redux": "^5.0.6",
+		"react-router-redux": "^5.0.0-alpha.9",
+		"redux": "^3.7.2",
+		"redux-logger": "^3.0.6",
+		"redux-thunk": "^2.2.0"
+		...
+  },
+  ...
+}
+2. Open command line type ```npm install```
+
+
+For Only react-redux <kbd>npm install --save react-redux</kbd>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Errors / Issues
 
 ### match.params returns empty even when URL contains params 
