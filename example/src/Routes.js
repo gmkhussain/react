@@ -5,9 +5,12 @@ import AboutPage from './layout/about';
 import LoginPage from './layout/login';
 import NotFoundPage from './layout/notfound';
 import Navbar from './layout/navbar';
-import createBrowserHistory from 'history/createBrowserHistory';
+//import createBrowserHistory from 'history/createBrowserHistory';
 
-const customHistory = createBrowserHistory();
+//const customHistory = createBrowserHistory();
+
+import customHistory from "./History";
+
 
 const MyRoutes = () =>(
     <Router history={customHistory}>
@@ -17,11 +20,11 @@ const MyRoutes = () =>(
             
             <hr />
             <Switch>
-            <Route exact path='/' component={App} />
-            <Route path='/about/:userid' component={AboutPage} /> {/*<-- userid passed in url */ }
-            <Route path='/login' component={LoginPage} />
-            <Redirect from="/about-us" to="/about" />
-            <Route component={NotFoundPage} />
+                <Route exact path='/' component={App} />
+                <Route path='/about/:userid' component={AboutPage} /> {/*<-- userid passed in url */ }
+                <Route path='/login' component={LoginPage} />
+                <Redirect from="/about-us" to="/about" />
+                <Route component={NotFoundPage} />
             </Switch>
         </div>
     </Router>

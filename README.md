@@ -1218,6 +1218,143 @@ For Only react-redux <kbd>npm install --save react-redux</kbd>
 
 
 
+### How to access one component's state from another component with Redux
+```
+               _One Component
+App Component /
+              \_Aonther Component
+```
+
+
+
+1. create spearte file for history ```History.js```
+```javascript
+//History.js
+import createBrowserHistory from 'history/createBrowserHistory';
+
+const customHistory = createBrowserHistory();
+
+export default customHistory;
+```
+
+
+
+2. Import into ```Routes.js```
+```
+//Routes.js
+...
+import history from "./History";
+...
+```
+
+
+
+3. Create following file/folder for redux functions
+
+```javascript
+//store/index.js
+import { createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk'; //<-- for action dispatch
+import allReducers from './reducer';
+
+
+const store = createStore(
+    allReducers,
+    {},
+    applyMiddleware(thunk)
+)
+
+export default store;
+```
+
+
+
+```javascript
+//store/reducer/index.js
+import my_reducer from './reducer';
+
+import { combineReducers } from 'redux';
+
+export default combineReducers({
+    rootReducer: my_reducer
+})
+
+```
+
+
+```javascript
+////store/reducer/my_reducer.js
+const INITIAL_STATE = {
+    userName: 'Alex Josh'
+}
+//static data for now
+
+export default (state = INITIAL_STATE, action)=>{
+    switch(action.type){
+        default:
+            return state;  
+    }
+}
+```
+
+
+
+4. Modify ```index.js```
+<b>Note</b> After import react-redux and store make <Provider> parent for <MyRoutes>.
+```javascript
+...
+import {Provider} from "react-redux"; //<-- Added
+import store from './store'; //<-- Added
+
+ReactDOM.render(
+	<div>
+		<Provider store={store}> //<-- Added
+			<MyRoutes />
+		</Provider> //<-- Added
+	</div>
+, document.getElementById('root'));
+
+```
+
+
+5. Access and diplay data from Redux store
+Code. ```{this.props.userName}```
+
+```
+//About.js
+import React, { Component } from 'react';
+import { connect } from "react-redux"; //<-- Added
+
+class AboutPage extends Component{
+
+	render(){
+		...
+		return(
+            <div>
+                <h2>About Page {this.props.userName} </h2>
+               ...
+            </div>
+        )
+	}
+}
+
+
+/**redux**/
+function mapStateToProps(state){
+    return({
+        userName: state.rootReducer.userName
+    })
+}
+
+
+function mapDispatchToProps(dispatch){
+    return({ })
+}
+/**./redux**/
+
+export default connect(mapStateToProps, mapDispatchToProps)(AboutPage);
+
+```
 
 
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { connect } from "react-redux";
 
 class AboutPage extends Component{
 
@@ -27,7 +28,7 @@ class AboutPage extends Component{
 
 		return(
             <div>
-                <h2>About Page</h2>
+                <h2>About Page {this.props.userName} </h2>
                User ID: {this.props.match.params.userid} *by normal syntax
                <br/>
                User Name: {requiredUser.name} *by sorting into variable
@@ -38,4 +39,18 @@ class AboutPage extends Component{
 	}
 }
 
-export default AboutPage;
+
+/**redux**/
+function mapStateToProps(state){
+    return({
+        userName: state.rootReducer.userName
+    })
+}
+
+
+function mapDispatchToProps(dispatch){
+    return({ })
+}
+/**./redux**/
+
+export default connect(mapStateToProps, mapDispatchToProps)(AboutPage);
