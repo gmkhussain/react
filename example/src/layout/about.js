@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
-
 import { connect } from "react-redux";
+import { changeState } from '../store/action/action';
 
 class AboutPage extends Component{
 
+    _changeState(){
+        //console.log("sr");
+        //changeState();
+        this.props.changeStateToReducer()
+    }
 
 	render(){
 
@@ -29,6 +34,9 @@ class AboutPage extends Component{
 		return(
             <div>
                 <h2>About Page {this.props.userName} </h2>
+
+                <button onClick={this._changeState.bind(this)}>Change Redux State</button>
+
                User ID: {this.props.match.params.userid} *by normal syntax
                <br/>
                User Name: {requiredUser.name} *by sorting into variable
@@ -49,7 +57,11 @@ function mapStateToProps(state){
 
 
 function mapDispatchToProps(dispatch){
-    return({ })
+    return({
+        changeStateToReducer: ()=>{ /* custom name */
+            dispatch(changeState()); //<-- changeState from <action.js> || usage: this.props.changeStateToReducer()
+        }
+     })
 }
 /**./redux**/
 

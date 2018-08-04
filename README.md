@@ -1359,6 +1359,109 @@ export default connect(mapStateToProps, mapDispatchToProps)(AboutPage);
 
 
 
+### Redux updating state on button click
+
+1. Modify ```about.js```
+```javascript
+//about.js
+import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { changeState } from '../store/action/action'; //<-- added
+
+class AboutPage extends Component{
+
+    _changeState(){
+        this.props.changeStateToReducer()
+    }
+
+	render(){
+        ...
+		return(
+            <div>
+                <h2>About Page {this.props.userName} </h2>
+
+                <button onClick={this._changeState.bind(this)}>Change Redux State</button>
+				...
+            </div>
+        )
+	}
+}
+
+
+/**redux**/
+function mapStateToProps(state){
+    return({
+        userName: state.rootReducer.userName
+    })
+}
+
+
+function mapDispatchToProps(dispatch){
+    return({
+        changeStateToReducer: ()=>{ /* custom name */
+            dispatch(changeState()); //<-- changeState from <action.js> || usage: this.props.changeStateToReducer()
+        }
+     })
+}
+/**./redux**/
+
+export default connect(mapStateToProps, mapDispatchToProps)(AboutPage);
+
+```
+
+2. Modify ```my_reducer.js```
+```javascript
+//reducer/my_reducer.js
+const INITIAL_STATE = {
+    userName: 'Alex Josh',
+    rollNumber: '157'
+}
+
+
+export default (states = INITIAL_STATE, action)=>{
+    switch(action.type){
+
+        case 'CHANGEUSERNAME':
+            return ({
+                ...states,
+                userName: action.payload
+            })
+
+        default:
+            return states;  
+    }
+}
+```
+
+
+3. Create ```action/action.js``` file
+```javascript
+export function changeState(){
+    return dispatch =>{
+        //console.log("from action..");
+        dispatch({type:'CHANGEUSERNAME', payload: 'New Name'}) /*payload = new or updated state data*/
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1492,4 +1595,22 @@ const Navbar = () =>(
 	<li><Link to="your-link">Your Text</Link></li>
  </ul>
 )
+```
+
+
+### Uncaught Error: Actions must be plain objects. Use custom middleware for async actions.
+```
+//WRONG
+export function changeState(){
+    console.log("from action..");
+}
+```
+
+```
+//RIGHT
+export function changeState(){
+	return dispatch =>{
+		console.log("from action..");
+	}
+}
 ```

@@ -1,11 +1,20 @@
 const INITIAL_STATE = {
-    userName: 'Alex Josh'
+    userName: 'Alex Josh',
+    rollNumber: 'fff'
 }
 //static data for now   
 
-export default (state = INITIAL_STATE, action)=>{
+export default (states = INITIAL_STATE, action)=>{
     switch(action.type){
+
+        case 'CHANGEUSERNAME':
+            return ({
+                ...states,
+                userName: action.payload
+            })
+
+
         default:
-            return state;  
+            return states;  
     }
 }
