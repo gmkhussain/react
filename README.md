@@ -1,6 +1,16 @@
 # <img src="https://blog-assets.risingstack.com/2016/Jan/react_best_practices-1453211146748.png" style="position: relative; top: 5px;" height="80" /> 
 
 
+<a href="https://github.com/gmkhussain/react#-react-route-one-router-to-rule-them-all"><img src="https://seeklogo.com/images/R/react-router-logo-AB5BFB638F-seeklogo.com.png" height="40" width="auto" /></a>
+
+
+<a href="https://github.com/gmkhussain/react#-1"><img src="https://kyleshevlin.com/wp-content/uploads/2016/11/redux_logo_2.png" height="40" width="auto"  /></a>
+
+
+<a href="https://github.com/gmkhussain/react#-2"><img src="https://ih0.redbubble.net/image.395434023.9542/flat,550x550,075,f.jpg" height="40" width="auto"  /></a>
+
+
+
 ## Get Started with ReactJS CLI ⚛️
 
 1. First install the global package: 
@@ -1207,6 +1217,8 @@ export default MyRoutes;
   },
   ...
 }
+```
+
 2. Open command line type ```npm install```
 
 
@@ -1219,7 +1231,8 @@ For Only react-redux <kbd>npm install --save react-redux</kbd>
 
 
 ### How to access one component's state from another component with Redux
-```
+
+```javascript
                _One Component
 App Component /
               \_Aonther Component
@@ -1227,7 +1240,8 @@ App Component /
 
 
 
-1. create spearte file for history ```History.js```
+1. Create spearte file for history ```History.js```
+
 ```javascript
 //History.js
 import createBrowserHistory from 'history/createBrowserHistory';
@@ -1283,7 +1297,7 @@ export default combineReducers({
 
 
 ```javascript
-////store/reducer/my_reducer.js
+//store/reducer/my_reducer.js
 const INITIAL_STATE = {
     userName: 'Alex Josh'
 }
@@ -1320,7 +1334,7 @@ ReactDOM.render(
 5. Access and diplay data from Redux store
 Code. ```{this.props.userName}```
 
-```
+```javascript
 //About.js
 import React, { Component } from 'react';
 import { connect } from "react-redux"; //<-- Added
@@ -1499,6 +1513,7 @@ export default MyRoutes;
 
 
 ### Uncaught TypeError anyVaribleName.push is not a function Error in ReactJS
+
 ```javascript
 ...
 this.state={
@@ -1522,12 +1537,13 @@ this.state={
 
 * Don't use <code>=</code> in setState, Use <code>:</code> instead of '='
 
-* missing `return(<div>...</div>)` in render `render(){ (<div>...</div> )}`
+* Missing `return(<div>...</div>)` in render `render(){ (<div>...</div> )}`
 
 
 * `'Component' is not defined  no-undef` make sure `{ Component }` added here `import React, { Component } from 'react';`
 
 * Use ```this.state={...``` instead of ```state:{...```
+
 ```javascript
 //Wrong
 ...
@@ -1547,10 +1563,9 @@ this.state={
         }
 ...
 ```
+
 <b>Note</b> Also make sure event handler binded in constructor like this -> ```this.myEventHandler = this.myEventHandler.bind(this);```
 
-
-*
 
 ```javascript
 //WRONG
@@ -1577,9 +1592,10 @@ radioHandler(event){
 
 
 
-* Don't use ```Return(...)`` inside Routing Arrow function in ReactJS
-//WRONG
-```
+* Don't use ```Return(...)``` inside Routing Arrow function in ReactJS
+
+```javascript
+//WRONG	
 const Navbar = () =>{ //<--DONT use curly brackets
     return( //<--DONT add return() here
 
@@ -1587,9 +1603,11 @@ const Navbar = () =>{ //<--DONT use curly brackets
 } 
 ```
 
-//Right
-<b>Note:</b> use round brackets ```const Navbar = () => (...)``` instead of curly brackets ```const Navbar = () => {...}```
-```
+
+<b>Note:</b> use round brackets ```const Navbar = () => (...)``` instead of curly brackets ```const Navbar = () => {...}```..
+
+```javascript
+//RIGHT
 const Navbar = () =>(
  <ul>
 	<li><Link to="your-link">Your Text</Link></li>
@@ -1599,18 +1617,37 @@ const Navbar = () =>(
 
 
 ### Uncaught Error: Actions must be plain objects. Use custom middleware for async actions.
-```
+```javascript
 //WRONG
 export function changeState(){
     console.log("from action..");
 }
 ```
 
-```
+```javascript
 //RIGHT
 export function changeState(){
 	return dispatch =>{
 		console.log("from action..");
 	}
 }
+```
+
+
+
+
+
+# <img src="https://ih0.redbubble.net/image.395434023.9542/flat,550x550,075,f.jpg" style="position: relative; top: 5px;" height="80" /> 
+
+
+### Starting a new project
+
+```javascript
+yarn init
+```
+
+### Installing all the dependencies of project
+
+```javascript
+yarn install
 ```
