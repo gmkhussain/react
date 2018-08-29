@@ -1659,3 +1659,12 @@ rimraf is the UNIX command rm -rf for node, need to install it with
 ```javascript
 npm install rimraf -g.
 ```
+
+### cross-env NODE_ENV=development node server Fails
+'cross-env' is not recognized as an internal or external command,
+
+install cross-env with npm
+
+```javascript
+npm install cross-env
+```
