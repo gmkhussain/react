@@ -1651,3 +1651,11 @@ yarn init
 ```javascript
 yarn install
 ```
+
+
+### 'rimraf' is not recognized as an internal or external command 
+
+rimraf is the UNIX command rm -rf for node, need to install it with
+```javascript
+npm install rimraf -g.
+```
