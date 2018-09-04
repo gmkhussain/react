@@ -3,6 +3,7 @@ import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import App from './App';
 import AboutPage from './layout/about';
 import LoginPage from './layout/login';
+import DataFetchPage from './layout/data_fetch';
 import NotFoundPage from './layout/notfound';
 import Navbar from './layout/navbar';
 //import createBrowserHistory from 'history/createBrowserHistory';
@@ -23,6 +24,7 @@ const MyRoutes = () =>(
                 <Route exact path='/' component={App} />
                 <Route path='/about/:userid' component={AboutPage} /> {/*<-- userid passed in url */ }
                 <Route path='/login' component={LoginPage} />
+                <Route path='/data_fetch' component={DataFetchPage} />
                 <Redirect from="/about-us" to="/about" />
                 <Route component={NotFoundPage} />
             </Switch>
