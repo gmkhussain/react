@@ -1532,6 +1532,38 @@ this.state={
 
 
 
+
+### jQuery in React / $ is not defined in ReactJS
+open commandline and install jQuery
+```npm i jquery --save```
+
+import jquery file where you need
+
+```javascript
+// file_name.js
+// ...
+	import $ from 'jquery';
+// ...
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Common mistakes in React
 * <kbd>component</kbd> should start with CAPITAL 'C' <kbd>Component</kbd>
 
@@ -1545,7 +1577,7 @@ this.state={
 * Use ```this.state={...``` instead of ```state:{...```
 
 ```javascript
-//Wrong
+// Wrong
 ...
 	super(props);
         state : {
@@ -1553,9 +1585,20 @@ this.state={
         }
 ...
 ```
+
+
+```javascript
+// Wrong 2.0 : forget to use 'this.state'
+constructor(props){
+		super(props)
+		demovar: "dummy text"
+}
+```
+
+
 	
 ```javascript
-//Right
+// Right
 ...
 	super(props);
         this.state = {
@@ -1632,6 +1675,32 @@ export function changeState(){
 	}
 }
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
