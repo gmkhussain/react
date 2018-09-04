@@ -1464,9 +1464,8 @@ export function changeState(){
 
 
 
-
-<img src="https://avatars2.githubusercontent.com/u/69535?s=200&v=4"  height="40" width="auto" />
 ### YAML data fetch in ReactJS
+<img src="https://avatars2.githubusercontent.com/u/69535?s=200&v=4"  height="40" width="auto" />
 
 Create new file for fetch API data
 
@@ -1542,13 +1541,53 @@ NOTE: see result in console.
 
 
 
+### JSON data fetch from local file in ReactJS
 
 
+```javascript
+import React, { Component } from 'react';
+import yaml from 'js-yaml';
+import $ from 'jquery';
+
+import jdata from '../_data/data.json';
+
+class DataFetchPage extends Component{
+
+    constructor(props){
+        super(props)
+        this.state={
+            demo_var: "dummy text",
+        }
+    }
 
 
+    componentDidMount() {
+        console.log("Data loaded :" +jdata[1].title);
+    }
+ 
+        
+    render(){
+
+        const listJsonData = jdata.map(
+            (d) =>
+            <div key={d.id}>
+                <span>{d.id} - </span>
+                <span>{d.title}</span>
+            </div>
+        );
 
 
+        return(
+            <div>
+				{listJsonData}
+                {this.state.demo_var}
+            </div>
+        )
+    }
+}
 
+export default DataFetchPage;
+```
 
 
 
