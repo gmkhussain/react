@@ -1465,6 +1465,81 @@ export function changeState(){
 
 
 
+<img src="https://avatars2.githubusercontent.com/u/69535?s=200&v=4"  height="40" width="auto" />
+### YAML data fetch in ReactJS
+
+Create new file for fetch API data
+
+```javascript
+//data_fetch.js
+import React, { Component } from 'react';
+import yaml from 'js-yaml';
+import $ from 'jquery';
+
+
+class DataFetchPage extends Component{
+
+    constructor(props){
+        super(props)
+        this.state={
+            demo_var: "dummy text"
+        }
+    }
+
+
+    render(){
+        $.get( 'https://raw.githubusercontent.com/nodeca/js-yaml/2d1fbed8f3a76ff93cccb9a8a418b4c4a482d3d9/examples/sample_document.yml', function( data2 ) {
+            var data = yaml.load( data2 );
+            console.log( data.timestamp ); //
+        });
+
+        return(
+            <div>
+                {this.state.demo_var}
+            </div>
+        )
+    }
+
+
+}
+
+export default DataFetchPage;
+
+```
+
+
+2. Modify Routes.js
+
+```javascript
+//Routes.js
+// ...
+import DataFetchPage from './layout/data_fetch';
+// ...
+
+<Switch>
+	//...
+	<Route path='/data_fetch' component={DataFetchPage} />
+	//...
+</Switch>
+//...
+
+```
+
+
+3. Modify Navbar.js
+```javascript
+//Navbar.js
+// ...
+    <li><Link to='/data_fetch'>Data Fetch (API)</Link></li>
+// ...
+```
+
+NOTE: see result in console.
+
+
+
+
+
 
 
 
