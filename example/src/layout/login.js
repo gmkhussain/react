@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 class LoginPage extends Component{
 
     constructor(props){
         super(props)
         this.state={
-            pass:''
+            pass:'',
+            typechecker: 44
         }
         this.eventHandler = this.eventHandler.bind(this);
     }
@@ -37,15 +40,22 @@ class LoginPage extends Component{
 
 
 
+ 
+
+
 	render(){
+
+
 		return(
             <div>
+             
+
                 <h2>Login Page</h2>
                 <input type="text" name="pass" value={this.state.pass} onChange={this.eventHandler} />
                 <button onClick={this.loginHandler.bind(this)}>Login</button>
                 
                 <p>Correct password: 'mypass'</p>
-                
+                <span>{this.state.typechecker}</span>
                 <ul>
                     <li><Link to='/about/158'>About with 158 UserID</Link></li>
                     <li><Link to='/about/159'>About with 159 UserID</Link></li>
@@ -53,7 +63,16 @@ class LoginPage extends Component{
             
             </div>
         )
-	}
+    }
+     
+
 }
+
+
+
+/**PropType**/
+LoginPage.propTypes = { typechecker: PropTypes.string  };
+/**./PropType**/
+
 
 export default LoginPage;

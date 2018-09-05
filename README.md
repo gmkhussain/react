@@ -1792,8 +1792,23 @@ export function changeState(){
 
 
 
+### TypeError: __WEBPACK_IMPORTED_MODULE_0_react___default(...) is not a function
+
+```
+// Wrong
+class D3Map extends React(){
+	// ...
+}
+```
 
 
+```
+// Right
+class D3Map extends Component{
+	// 	...
+}
+
+```
 
 
 

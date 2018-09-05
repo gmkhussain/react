@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import yaml from 'js-yaml';
-import $ from 'jquery';
+//import $ from 'jquery';
 
 import jdata from '../_data/data.json';
+
 
 class DataFetchPage extends Component{
 
@@ -32,7 +33,7 @@ class DataFetchPage extends Component{
         const listJsonData = jdata.map(
             (d) =>
             <div key={d.id}>
-                <span>{d.id} - </span>
+                <span><b>{d.id}</b> - </span>
                 <span>{d.title}</span>
             </div>
         );
@@ -41,7 +42,7 @@ class DataFetchPage extends Component{
         return(
             <div>
 
-            {listJsonData}
+                {listJsonData}
 
                 {this.state.demo_var}
             </div>
