@@ -2,23 +2,26 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 
-const myStyle = {
-  color: 'orange',
-};
+import MyRoutes from './Routes.js';
+import {Provider} from "react-redux";
 
-class TestMessage extends Component{
+import store from './store';
+
+//const myStyle = {  color: 'orange', };
+
+class App extends Component{
 
 	componentWillMount(){
 		document.title = "My Title"
 	  }
 
 	render(){
-		return <div className="box">
-			<h2>
-			Main / Home Page
-			</h2>
-		</div>
+		return(
+			<Provider store={store}>
+				<MyRoutes />
+			</Provider>
+		)
 	}
 }
 
-export default TestMessage;
+export default App;

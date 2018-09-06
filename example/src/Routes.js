@@ -12,6 +12,8 @@ import Navbar from './layout/navbar';
 //const customHistory = createBrowserHistory();
 
 import customHistory from "./History";
+import HomePage from './layout/home';
+import ReduxDemoPage from './layout/redux_demo';
 
 
 const MyRoutes = () =>(
@@ -22,13 +24,16 @@ const MyRoutes = () =>(
             
             <hr />
             <Switch>
-                <Route exact path='/' component={App} />
+                <Route exact path='/' component={HomePage} />
                 <Route path='/about/:userid' component={AboutPage} /> {/*<-- userid passed in url */ }
                 <Route path='/login' component={LoginPage} />
                 <Route path='/data_fetch' component={DataFetchPage} />
                 <Route path='/d3-map' component={D3MapView} />
+                <Route path='/redux-demo' component={ReduxDemoPage} />
+
                 <Redirect from="/about-us" to="/about" />
                 <Route component={NotFoundPage} />
+                
             </Switch>
         </div>
     </Router>

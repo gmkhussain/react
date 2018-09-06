@@ -59,7 +59,7 @@ class D3Map extends Component{
                                    141.1,561.1 143.2,550.4 142.1,513.4 136.4,507.9 129,505.7 128.1,502.8 136.4,498.3 133.6,482 132.6,479 141.1,474.9 143.2,487.5
                                    154.5,489.4 167.9,484.7 184,469.4 	"/>
       <foreignObject class="node" x="165" y="555"   width="40" height="40">
-            <img src={this.state.logo} width="32" />
+            <img src={this.state.logo} width="32" alt="icon" />
       </foreignObject>
       <text x="155" y="550" font-family="Verdana" font-size="10" fill="white">
         {this.state.name}

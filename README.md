@@ -1226,7 +1226,11 @@ For Only react-redux <kbd>npm install --save react-redux</kbd>
 
 
 
+#### redux-logger
+Logger for Redux. ... Log only in development; Log everything except actions with certain type ... ```import { createLogger } from 'redux-logger'```
 
+#### redux-thunk ( Middleware )
+An action creator that returns a function to perform asynchronous dispatch.
 
 
 
@@ -1865,4 +1869,27 @@ install cross-env with npm
 
 ```javascript
 npm install cross-env
+```
+
+
+
+
+
+
+
+
+
+
+# FAQ
+
+#### Why should redux action types be in UPPER_CASE?
+It's naming convention which is common also in other other languages.
+Mainly because of actions is being refereed from multiple modules, Easy readability in code, Actions are important focus as they are meant to change the state of the ReactUI.
+
+```javascript
+const ActionsExample = {
+  LOAD_POSTS_REQUEST: 'LOAD_POSTS_REQUEST',
+  LOAD_POSTS_FAILURE: 'LOAD_POSTS_FAILURE',
+  LOAD_POSTS_SUCCESS: 'LOAD_POSTS_SUCCESS',
+};
 ```

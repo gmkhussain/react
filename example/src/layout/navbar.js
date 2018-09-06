@@ -12,6 +12,7 @@ const Navbar = () => (
         <li><Link to='/login'>Login</Link></li>
         <li><Link to='/data_fetch'>Data Fetch (API)</Link></li>
         <li><Link to='/d3-map'>D3 Map View</Link></li>
+        <li><Link to='/redux-demo'>Redux Demo</Link></li>
     </ul>
    
 )
