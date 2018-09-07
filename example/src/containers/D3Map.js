@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import D3Map from './d3_map';
+import D3Map from '../components/d3map';
 
 class D3MapView extends Component{
 
