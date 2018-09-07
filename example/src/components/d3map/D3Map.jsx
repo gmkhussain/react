@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Button from './Button';
 
 class D3Map extends Component{
 
@@ -45,8 +45,8 @@ class D3Map extends Component{
         return (<div>
 
 
-            <button onClick={this.onClickbgOrange.bind(this)}>onClickbgOrange</button>
-            <button onClick={this.onClickbgGreen.bind(this)}>onClickbgGreen</button>
+            <Button onClick={this.onClickbgOrange.bind(this)}>onClickbgOrange</Button>
+            <Button onClick={this.onClickbgGreen.bind(this)}>onClickbgGreen</Button>
         
         <br/>
 

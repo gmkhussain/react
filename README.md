@@ -1825,12 +1825,18 @@ class D3Map extends Component{
 
 
 
+<h1 align="center">
+  <img src="http://whyinterviewdave.com/images/styled-components.png" width="80">
+  <br>
+  :lipstick: Styled Components
+  <br>
+</h1>
+
+```npm install --save styled-components.```
 
 
-
-
-
-
+#### Module not found: Can't resolve 'style'
+```npm install style-loader --save-dev````
 
 
 
