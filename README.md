@@ -1215,7 +1215,7 @@ Add ClassName module
 
 Code this where you want.
 ```javascript
-getClassNames() {
+var btn = getClassNames() {
     return classNames({
         'is-active':  this.state.clicked,
         'is-inactive':  !this.state.clicked
@@ -1936,4 +1936,34 @@ const ActionsExample = {
   LOAD_POSTS_FAILURE: 'LOAD_POSTS_FAILURE',
   LOAD_POSTS_SUCCESS: 'LOAD_POSTS_SUCCESS',
 };
+```
+
+
+#### Difference between Functional Component and Class Component ?
+
+Functional Component 
+* Used for presenting static data 
+* Can't handle fetching data 
+* Easy to write
+
+```javascript
+const Header = () => { 
+	return < Text>Hello Amoos!</Text> 
+}
+```
+
+
+Class Component 
+* Used for dynamic sources of data 
+* Handles any data that might change (fetching data, user events, etc) 
+* Knows when it gets erendered to the 
+* device (useful for data fetching) 
+* More code to write
+
+```javascript
+class Header extends Component { 
+	render() { 
+		return < Text>Hello Amoos!</Text> 
+	}
+}
 ```
