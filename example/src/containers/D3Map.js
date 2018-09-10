@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import D3Map from '../components/d3map';
 
-class D3MapView extends Component{
+class D3MapPage extends Component{
 
     render(){
         return(<div>
@@ -11,4 +11,4 @@ class D3MapView extends Component{
 
 }
 
-export default D3MapView;
+export default D3MapPage;

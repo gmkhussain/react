@@ -1,13 +1,22 @@
-# <img src="https://blog-assets.risingstack.com/2016/Jan/react_best_practices-1453211146748.png" style="position: relative; top: 5px;" height="80" /> 
+<h1 align="center">
+<img src="https://blog-assets.risingstack.com/2016/Jan/react_best_practices-1453211146748.png" style="position: relative; top: 5px;" height="80" /> 
+</h1>
 
 
+
+<table>
+<tr>
+<td>
 <a href="https://github.com/gmkhussain/react#-react-route-one-router-to-rule-them-all"><img src="https://seeklogo.com/images/R/react-router-logo-AB5BFB638F-seeklogo.com.png" height="40" width="auto" /></a>
-
-
+</td>
+<td>
 <a href="https://github.com/gmkhussain/react#-1"><img src="https://kyleshevlin.com/wp-content/uploads/2016/11/redux_logo_2.png" height="40" width="auto"  /></a>
-
-
+</td>
+<td>
 <a href="https://github.com/gmkhussain/react#-2"><img src="https://ih0.redbubble.net/image.395434023.9542/flat,550x550,075,f.jpg" height="40" width="auto"  /></a>
+</td>
+</tr>
+</table>
 
 
 
@@ -730,8 +739,11 @@ export default MyForm;
 
 
 
-
-# <img src="https://seeklogo.com/images/R/react-router-logo-AB5BFB638F-seeklogo.com.png" height="80" /> React Route: One Router to Rule Them All
+<h1 align="center">
+<img src="https://seeklogo.com/images/R/react-router-logo-AB5BFB638F-seeklogo.com.png" height="80" />
+<br/>
+React Route: One Router to Rule Them All
+</h1>
 
 ### Install React route
 Open command line and type <kbd>npm install --save react-router-dom</kbd>
@@ -1194,9 +1206,32 @@ export default MyRoutes;
 
 
 
+### How to addClass / toggleClass on click in ReactJS
+
+Add ClassName module
+
+```yarn add classnames --save``` OR ```npm install classnames --save```
 
 
-# <img src="https://kyleshevlin.com/wp-content/uploads/2016/11/redux_logo_2.png" style="position: relative; top: 5px;" height="80" />
+Code this where you want.
+```javascript
+getClassNames() {
+    return classNames({
+        'is-active':  this.state.clicked,
+        'is-inactive':  !this.state.clicked
+    });
+},
+render () {
+    return <button className={this.getClassNames()} onClick={this.setState({clicked: !this.state.clicked})>
+}
+```
+
+
+
+
+<h1 align="center">
+<img src="https://kyleshevlin.com/wp-content/uploads/2016/11/redux_logo_2.png" style="position: relative; top: 5px;" height="80" />
+</h1>
 
 ### Setting Up Redux with React
 
@@ -1465,11 +1500,12 @@ export function changeState(){
 
 
 
-
+<h1 align="center">
+<img src="https://avatars2.githubusercontent.com/u/69535?s=200&v=4"  height="80" width="auto" />
+</h1>
 
 
 ### YAML data fetch in ReactJS
-<img src="https://avatars2.githubusercontent.com/u/69535?s=200&v=4"  height="40" width="auto" />
 
 Create new file for fetch API data
 
@@ -1601,7 +1637,9 @@ export default DataFetchPage;
 
 
 
-
+<h1 align="center">
+<img src="https://cdn.iconscout.com/icon/free/png-256/warning-272-830593.png"  height="80" width="auto" />
+</h1>
 
 # Errors / Issues
 
@@ -1843,9 +1881,9 @@ class D3Map extends Component{
 
 
 
-
-
-# <img src="https://ih0.redbubble.net/image.395434023.9542/flat,550x550,075,f.jpg" style="position: relative; top: 5px;" height="80" /> 
+<h1 align="center">
+<img src="https://ih0.redbubble.net/image.395434023.9542/flat,550x550,075,f.jpg" style="position: relative; top: 5px;" height="80" /> 
+</h1>
 
 
 ### Starting a new project
