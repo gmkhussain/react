@@ -1707,9 +1707,38 @@ import jquery file where you need
 
 
 
+<h1 align="center">
+	<img src="https://cdn-images-1.medium.com/max/1600/1*_Hf-_m-JWnK2mj-G4IJ-bw.png"  height="80" width="auto" />
+	ESLint
+</h1>
+
+
+### Visible, non-interactive elements with click handlers must have at least one keyboard listener.
+<div onClick={() => {}} onKeyPress={this.handleKeyPress} />
 
 
 
+### Static HTML elements with event handlers require a role. (jsx-a11y/no-static-element-interactions)
+```javascript
+// RIGHT
+<button onClick={() => {}} className="foo" />
+<div className="foo" onClick={() => {}} role="button" />
+<input type="text" onClick={() => {}} />
+```
+
+```
+//WRONG
+<div onClick={() => {}} />
+```
+
+
+### Elements with the 'button' interactive role must be focusable
+
+```javascript
+<div
+  role="button"
+  tabIndex={0} />
+```
 
 
 
