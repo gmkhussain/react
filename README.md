@@ -1704,6 +1704,20 @@ import jquery file where you need
 
 
 
+### linebreak-style: Expected linebreaks to be 'CRLF' but found 'LF'
+
+Open `package.json`, added following rules under rules line:
+
+```javascript
+"rules": {
+  "linebreak-style": 0,
+  "global-require": 0,
+  ...
+``` 
+
+for VScode users: click the option at the bottom-right of the window and set it to `LF` from `CRLF`
+errors will fixed for me
+
 
 
 
