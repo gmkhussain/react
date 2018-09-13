@@ -1748,6 +1748,28 @@ import 'react-dates/initialize';
 
 
 
+### :bug: DateRangePicker CSS not rendering correctly <react-dates>
+- configuration.module has an unknown property 'loaders'. These properties are valid:
+
+1. webpack config problem... there was no css loader in the config.
+
+Still not working... ???
+
+```yarn add css-loader --save-dev```
+
+#### configuration.module has an unknown property 'loaders'
+and add following rules in webpack config.
+
+```javascript
+ module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      }
+	// ...
+```
+
 
 
 
