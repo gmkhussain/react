@@ -1637,6 +1637,128 @@ export default DataFetchPage;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 align="center">
+	<img src="https://pbs.twimg.com/media/CqE7bg7UsAA6HsA.jpg" height="240px" ><br/>
+	Airbnb react-dates
+</h1>
+
+
+
+### :date: How to Add Date Ranger Picker in ReactJS 
+1.
+```javascript
+yarn add react-dates
+```
+
+
+2. An example for date range component file code
+```javascript
+// DatePicker.jsx
+/*eslint-disable */
+import React, { Component } from 'react'
+import {SingleDatePicker} from 'react-dates';
+
+import 'react-dates/initialize';
+
+class DatePicker extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state ={
+          date: null,
+          focused: null
+        }
+      }
+
+  render() {
+    return (<div>
+    Date Picker
+    
+    <SingleDatePicker
+                          // showClearDate={true}
+                          customInputIcon={
+                            <svg className="icon icon-small">
+                              
+                            </svg>
+                          }
+                          inputIconPosition="after"
+                          small={true}
+                          block={false}
+                          numberOfMonths={1}
+                          date={this.state.date}
+                          onDateChange={date => this.handleDateChange(date)}
+                          focused={this.state.focused}
+                          onFocusChange={({ focused }) =>
+                            this.setState({ focused })
+                          }
+                          openDirection="up"
+                          hideKeyboardShortcutsPanel={true}
+                        />
+		</div>)
+  }
+}
+
+export default DatePicker
+
+```
+
+
+3. Add component where you want.
+
+```javascript
+// ...
+import DatePicker from '../DatePicker';
+// ...
+
+
+render() {
+    return (<CalenderBarWrapper>
+    			<DatePicker />
+				// ...
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1 align="center">
 <img src="https://cdn.iconscout.com/icon/free/png-256/warning-272-830593.png"  height="80" width="auto" />
 </h1>
