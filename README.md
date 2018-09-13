@@ -1831,6 +1831,50 @@ import jquery file where you need
 
 
 
+
+
+
+
+### :bug: npm run build does not work
+
+#### Cannot find module 'webpack/lib/Chunk' 
+
+UPDATE: Installing a previous version of Webpack solved the issue.
+```npm install webpack@2.2.0 --save-dev```
+
+#### npm WARN npm npm does not support Node.js v10.10.0
+Solution: Run ```npm upgrade```
+
+#### "react-scripts build" gives webpack error: "Chunk.entrypoints: Use Chunks.addGroup instead"
+
+After running ```npm install -D extract-text-webpack-plugin@next``` solved this issue for me.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 align="center">
+	<img src="https://cdn-images-1.medium.com/max/1600/1*_Hf-_m-JWnK2mj-G4IJ-bw.png"  height="80" width="auto" />
+	ESLint
+</h1>
+
+
 ### linebreak-style: Expected linebreaks to be 'CRLF' but found 'LF'
 
 Open `package.json`, added following rules under rules line:
@@ -1846,12 +1890,6 @@ for VScode users: click the option at the bottom-right of the window and set it 
 errors will fixed for me
 
 
-
-
-<h1 align="center">
-	<img src="https://cdn-images-1.medium.com/max/1600/1*_Hf-_m-JWnK2mj-G4IJ-bw.png"  height="80" width="auto" />
-	ESLint
-</h1>
 
 
 ### Visible, non-interactive elements with click handlers must have at least one keyboard listener.
