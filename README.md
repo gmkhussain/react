@@ -1737,6 +1737,11 @@ render() {
 
 
 
+### :bug: Cannot read property 'createLTR' of undefined // react-dates ( Date Range Picker )
+Add below code at the beginning of your application, It worked for me
+```javascript
+import 'react-dates/initialize';
+```
 
 
 
