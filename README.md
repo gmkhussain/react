@@ -1892,7 +1892,7 @@ After running ```npm install -D extract-text-webpack-plugin@next``` solved this 
 
 
 <h1 align="center">
-	<img src="https://cdn-images-1.medium.com/max/1600/1*_Hf-_m-JWnK2mj-G4IJ-bw.png"  height="80" width="auto" />
+	<img src="https://cdn-images-1.medium.com/max/1600/1*_Hf-_m-JWnK2mj-G4IJ-bw.png"  height="80" width="auto" /> <br/>
 	ESLint
 </h1>
 
@@ -1940,6 +1940,43 @@ errors will fixed for me
   role="button"
   tabIndex={0} />
 ```
+
+
+
+### :bug: ` must be placed on a new line  react/jsx-one-expression-per-line
+
+```javascript
+// WRONG
+  <span>
+My Text
+  </span>
+```
+
+```javascript
+// Right * Strings must use singlequote quotes
+  <span>
+    {'My Text'}
+  </span>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2108,7 +2145,10 @@ class D3Map extends Component{
 
 
 
-
+#### How to Injecting styles in body without global style
+```css
+body:not(&) { overflow: hidden; }
+```
 
 
 <h1 align="center">
