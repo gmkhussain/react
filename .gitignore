@@ -2,6 +2,7 @@
 
 # dependencies
 /example/node_modules
+/example/package-lock.json
 
 # testing
 /example/coverage
@@ -15,6 +16,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.yarnreact
 
 npm-debug.log*
 yarn-debug.log*

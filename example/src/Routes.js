@@ -7,6 +7,7 @@ import D3MapPage from './containers/D3Map';
 import HomePage from './containers/home';
 import DataFetchPage from './containers/data_fetch';
 import ReduxDemoPage from './containers/redux_demo';
+import DragAndDrop from './containers/DragAndDrop';
 
 import Navbar from './containers/navbar';
 
@@ -37,6 +38,7 @@ const MyRoutes = () =>(
                 <Route path='/data_fetch' component={DataFetchPage} />
                 <Route path='/d3-map' component={D3MapPage} />
                 <Route path='/redux-demo' component={ReduxDemoPage} />
+                <Route path='/drag-and-drop' component={DragAndDrop} />
 
                 <Redirect from="/about-us" to="/about" />
                 <Route component={NotFoundPage} />
