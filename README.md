@@ -13,7 +13,23 @@
 <a href="https://github.com/gmkhussain/react#-1"><img src="https://kyleshevlin.com/wp-content/uploads/2016/11/redux_logo_2.png" height="40" width="auto"  /></a>
 </td>
 <td>
+<a href="https://github.com/gmkhussain/react#-2"><img src="https://avatars2.githubusercontent.com/u/69535?s=200&v=4" height="40" width="auto"  /></a>
+</td>
+<td>
 <a href="https://github.com/gmkhussain/react#-2"><img src="https://ih0.redbubble.net/image.395434023.9542/flat,550x550,075,f.jpg" height="40" width="auto"  /></a>
+</td>
+<td>
+<a href="https://github.com/gmkhussain/react#-2"><img src="https://cdn.iconscout.com/icon/free/png-256/warning-272-830593.png" height="40" width="auto"  /></a>
+</td>
+<td>
+<a href="https://github.com/gmkhussain/react#-2"><img src="https://cdn-images-1.medium.com/max/1600/1*_Hf-_m-JWnK2mj-G4IJ-bw.png" height="40" width="auto"  /></a>
+<br/>
+ESLint
+</td>
+<td>
+<a href="https://github.com/gmkhussain/react#-2"><img src="http://whyinterviewdave.com/images/styled-components.png" height="40" width="auto"  /></a>
+<br/>
+Styled
 </td>
 </tr>
 </table>
@@ -1786,92 +1802,6 @@ and add following rules in webpack config.
 
 
 
-<h1 align="center">
-<img src="https://cdn.iconscout.com/icon/free/png-256/warning-272-830593.png"  height="80" width="auto" />
-</h1>
-
-# Errors / Issues
-
-### match.params returns empty even when URL contains params 
-<b>Note:</b> make sure you have added params in ```routes.js```
-
-```javascript
-import React from 'react';
-import { Router, Route } from 'react-router-dom';
-import App from './App';
-import AboutPage from './layout/about';
-...
-import createBrowserHistory from 'history/createBrowserHistory';
-
-const customHistory = createBrowserHistory();
-
-const MyRoutes = () =>(
-    <Router history={customHistory}>
-        <div>
-			...
-            <Route path='/about/:userid' component={AboutPage} />
-        </div>
-    </Router>
-)
-export default MyRoutes;
-```
-
-
-### Uncaught TypeError anyVaribleName.push is not a function Error in ReactJS
-
-```javascript
-...
-this.state={
-	anotherVar: '',
-    anyVaribleName: '' //<-- Incorrect syntax .push()
-	anyVaribleName: [] //<-- Correct syntax .push()
-}
-...
-```
-
-
-
-### TypeError: Cannot set property 'YourValue' of undefined
-
-```this.myStateVarible;``` DONT forget to use <kbd>.state</kbd> before your state varible  ```this.state.myStateVarible;```
-
-
-
-
-### jQuery in React / $ is not defined in ReactJS
-open commandline and install jQuery
-```npm i jquery --save```
-
-import jquery file where you need
-
-```javascript
-// file_name.js
-// ...
-	import $ from 'jquery';
-// ...
-```
-
-
-
-
-
-
-
-### :bug: npm run build does not work
-
-#### Cannot find module 'webpack/lib/Chunk' 
-
-UPDATE: Installing a previous version of Webpack solved the issue.
-```npm install webpack@2.2.0 --save-dev```
-
-#### npm WARN npm npm does not support Node.js v10.10.0
-Solution: Run ```npm upgrade```
-
-#### "react-scripts build" gives webpack error: "Chunk.entrypoints: Use Chunks.addGroup instead"
-
-After running ```npm install -D extract-text-webpack-plugin@next``` solved this issue for me.
-
-
 
 
 
@@ -1977,11 +1907,175 @@ My Text
 
 
 
+<h1 align="center">
+  <img src="http://whyinterviewdave.com/images/styled-components.png" width="80">
+  <br>
+  :lipstick: Styled Components
+  <br>
+</h1>
+
+```npm install --save styled-components.```
+
+
+#### Module not found: Can't resolve 'style'
+```npm install style-loader --save-dev````
+
+
+
+#### How to Injecting styles in body without global style
+```css
+body:not(&) { overflow: hidden; }
+```
+
+
+<h1 align="center">
+<img src="https://ih0.redbubble.net/image.395434023.9542/flat,550x550,075,f.jpg" style="position: relative; top: 5px;" height="80" /> 
+</h1>
+
+
+### Starting a new project
+
+```javascript
+yarn init
+```
+
+### Installing all the dependencies of project
+
+```javascript
+yarn install
+```
+
+
+### 'rimraf' is not recognized as an internal or external command 
+
+rimraf is the UNIX command rm -rf for node, need to install it with
+```javascript
+npm install rimraf -g.
+```
+
+### cross-env NODE_ENV=development node server Fails
+'cross-env' is not recognized as an internal or external command,
+
+install cross-env with npm
+
+```javascript
+npm install cross-env
+```
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 align="center">
+<img src="https://cdn.iconscout.com/icon/free/png-256/warning-272-830593.png"  height="80" width="auto" />
+</h1>
+
+# Errors, Issues & Common mistakes in React
+
+### match.params returns empty even when URL contains params 
+<b>Note:</b> make sure you have added params in ```routes.js```
+
+```javascript
+import React from 'react';
+import { Router, Route } from 'react-router-dom';
+import App from './App';
+import AboutPage from './layout/about';
+...
+import createBrowserHistory from 'history/createBrowserHistory';
+
+const customHistory = createBrowserHistory();
+
+const MyRoutes = () =>(
+    <Router history={customHistory}>
+        <div>
+			...
+            <Route path='/about/:userid' component={AboutPage} />
+        </div>
+    </Router>
+)
+export default MyRoutes;
+```
+
+
+### Uncaught TypeError anyVaribleName.push is not a function Error in ReactJS
+
+```javascript
+...
+this.state={
+	anotherVar: '',
+    anyVaribleName: '' //<-- Incorrect syntax .push()
+	anyVaribleName: [] //<-- Correct syntax .push()
+}
+...
+```
+
+
+
+### TypeError: Cannot set property 'YourValue' of undefined
+
+```this.myStateVarible;``` DONT forget to use <kbd>.state</kbd> before your state varible  ```this.state.myStateVarible;```
+
+
+
+
+### jQuery in React / $ is not defined in ReactJS
+open commandline and install jQuery
+```npm i jquery --save```
+
+import jquery file where you need
+
+```javascript
+// file_name.js
+// ...
+	import $ from 'jquery';
+// ...
+```
+
+
+
+
+
+
+
+### :bug: npm run build does not work
+
+#### Cannot find module 'webpack/lib/Chunk' 
+
+UPDATE: Installing a previous version of Webpack solved the issue.
+```npm install webpack@2.2.0 --save-dev```
+
+#### npm WARN npm npm does not support Node.js v10.10.0
+Solution: Run ```npm upgrade```
+
+#### "react-scripts build" gives webpack error: "Chunk.entrypoints: Use Chunks.addGroup instead"
+
+After running ```npm install -D extract-text-webpack-plugin@next``` solved this issue for me.
 
 
 
@@ -2123,67 +2217,48 @@ class D3Map extends Component{
 
 
 
-
-
-
-
-
-
-
-<h1 align="center">
-  <img src="http://whyinterviewdave.com/images/styled-components.png" width="80">
-  <br>
-  :lipstick: Styled Components
-  <br>
-</h1>
-
-```npm install --save styled-components.```
-
-
-#### Module not found: Can't resolve 'style'
-```npm install style-loader --save-dev````
-
-
-
-#### How to Injecting styles in body without global style
-```css
-body:not(&) { overflow: hidden; }
+### ReferenceError: Unknown plugin "inline-react-svg" specified in
+```
+yarn add babel-plugin-inline-react-svg --save-dev
+yarn add babel-plugin-transform-replace-object-assign
+yarn add babel-preset-airbnb --save-dev
 ```
 
 
-<h1 align="center">
-<img src="https://ih0.redbubble.net/image.395434023.9542/flat,550x550,075,f.jpg" style="position: relative; top: 5px;" height="80" /> 
-</h1>
+
+### error building - Unknown plugin "add-module-exports"
+```yarn add babel-plugin-add-module-exports```
 
 
-### Starting a new project
 
+
+### [undefined] Unexpected token const... // ESLint
+enable blockBindings in your .eslintrc file:
 ```javascript
-yarn init
+// ...
+    "ecmaFeatures": {
+        "blockBindings": true
+    },
+// ...
 ```
 
-### Installing all the dependencies of project
-
-```javascript
-yarn install
-```
 
 
-### 'rimraf' is not recognized as an internal or external command 
 
-rimraf is the UNIX command rm -rf for node, need to install it with
-```javascript
-npm install rimraf -g.
-```
 
-### cross-env NODE_ENV=development node server Fails
-'cross-env' is not recognized as an internal or external command,
 
-install cross-env with npm
 
-```javascript
-npm install cross-env
-```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
