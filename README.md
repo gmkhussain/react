@@ -2336,6 +2336,13 @@ enable blockBindings in your .eslintrc file:
 
 
 
+# DevTools
+
+#### Redux DevTools
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
+
+#### Ract Develoepr DevTools
+https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
 
 
 
