@@ -7,6 +7,11 @@
 <table>
 <tr>
 <td>
+<a href="#ChartsJS"><img src="https://avatars0.githubusercontent.com/u/10342521?s=280&v=4" style="position: relative; top: 5px;" height="80" /></a>
+<br/>
+ChartsJS
+</td>
+<td>
 <a href="https://github.com/gmkhussain/react#-react-route-one-router-to-rule-them-all"><img src="https://seeklogo.com/images/R/react-router-logo-AB5BFB638F-seeklogo.com.png" height="40" width="auto" /></a>
 </td>
 <td>
@@ -1245,6 +1250,60 @@ render () {
 
 
 
+
+
+
+
+
+<h1 align="center" id="ChartsJS">
+<img src="https://avatars0.githubusercontent.com/u/10342521?s=280&v=4" style="position: relative; top: 5px;" height="80" />
+<br/>
+ChartsJS
+</h1>
+
+
+```
+npm install react-chartjs-2 chart.js --save
+```
+
+
+Usage:
+```javascript
+import { defaults } from 'react-chartjs-2';
+
+defaults.global.animation = false; // Disable animating charts by default.
+
+<Bar
+	data={data}
+	width={100}
+	height={50}
+	options={{
+		maintainAspectRatio: false
+	}}
+/>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1 align="center">
 <img src="https://kyleshevlin.com/wp-content/uploads/2016/11/redux_logo_2.png" style="position: relative; top: 5px;" height="80" />
 </h1>
@@ -2212,6 +2271,25 @@ class D3Map extends Component{
 }
 
 ```
+
+
+
+### Syntax error: src/containers/Chartsjs/index.js: Unexpected token, expected ;
+```
+// WRONG
+export default from './Chartsjs'
+```
+ 
+```
+// Right
+export { default } from './Chartsjs'
+```
+
+
+
+
+
+
 
 
 

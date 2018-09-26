@@ -14,6 +14,7 @@ const Navbar = () => (
         <li><Link to='/d3-map'>D3 Map View</Link></li>
         <li><Link to='/redux-demo'>Redux Demo</Link></li>
         <li><Link to='/drag-and-drop'>Drag and Drop</Link></li>
+        <li><Link to='/chartsjs'>ChartsJS</Link></li>
     </ul>
    
 )

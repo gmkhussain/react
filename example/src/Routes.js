@@ -8,6 +8,7 @@ import HomePage from './containers/home';
 import DataFetchPage from './containers/data_fetch';
 import ReduxDemoPage from './containers/redux_demo';
 import DragAndDrop from './containers/DragAndDrop';
+import Chartsjs from './containers/Chartsjs';
 
 import Navbar from './containers/navbar';
 
@@ -39,6 +40,7 @@ const MyRoutes = () =>(
                 <Route path='/d3-map' component={D3MapPage} />
                 <Route path='/redux-demo' component={ReduxDemoPage} />
                 <Route path='/drag-and-drop' component={DragAndDrop} />
+                <Route path='/chartsjs' component={Chartsjs} />
 
                 <Redirect from="/about-us" to="/about" />
                 <Route component={NotFoundPage} />
