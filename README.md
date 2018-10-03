@@ -7,35 +7,45 @@
 <table>
 <tr>
 <td>
-<a href="#ChartsJS"><img src="https://avatars0.githubusercontent.com/u/10342521?s=280&v=4" style="position: relative; top: 5px;" height="80" /></a>
-<br/>
-ChartsJS
+	<a href="#ChartsJS">
+	<img src="example/public/assets/images/chartsjs.png" style="position: relative; top: 5px;" height="80" />
+	<br/>ChartsJS</a>
 </td>
 <td>
-<a href="https://github.com/gmkhussain/react#-react-route-one-router-to-rule-them-all"><img src="https://seeklogo.com/images/R/react-router-logo-AB5BFB638F-seeklogo.com.png" height="40" width="auto" /></a>
+	<a href="#Route">
+	<img src="example/public/assets/images/react-route.png" height="40" width="auto" />
+	<br/> Route </a>
 </td>
 <td>
-<a href="https://github.com/gmkhussain/react#-1"><img src="https://kyleshevlin.com/wp-content/uploads/2016/11/redux_logo_2.png" height="40" width="auto"  /></a>
+	<a href="#Redux">
+	<img src="example/public/assets/images/redux.png" height="40" width="auto"  />
+	<br/> Redux </a>
 </td>
 <td>
-<a href="https://github.com/gmkhussain/react#-2"><img src="https://avatars2.githubusercontent.com/u/69535?s=200&v=4" height="40" width="auto"  /></a>
+	<a href="#yaml">
+	<img src="example/public/assets/images/yaml.png" height="40" width="auto"  />
+	<br/> YAML </a>
 </td>
 <td>
-<a href="https://github.com/gmkhussain/react#-2"><img src="https://ih0.redbubble.net/image.395434023.9542/flat,550x550,075,f.jpg" height="40" width="auto"  /></a>
+	<a href="#yarn">
+	<img src="example/public/assets/images/yarn.png" height="40" width="auto"  /></a>
 </td>
 <td>
-<a href="https://github.com/gmkhussain/react#-2"><img src="https://cdn.iconscout.com/icon/free/png-256/warning-272-830593.png" height="40" width="auto"  /></a>
+	<a href="#errors">
+	<img src="example/public/assets/images/errors.png" height="40" width="auto"  />
+	<br/> Errors </a>
 </td>
 <td>
-<a href="https://github.com/gmkhussain/react#-2"><img src="https://cdn-images-1.medium.com/max/1600/1*_Hf-_m-JWnK2mj-G4IJ-bw.png" height="40" width="auto"  /></a>
+	<a href="#ESLint">
+	<img src="example/public/assets/images/eslint.png" height="40" width="auto"  />
+	<br/> ESLint </a>
 <br/>
 ESLint
 </td>
 <td>
-<a href="https://github.com/gmkhussain/react#-2"><img src="http://whyinterviewdave.com/images/styled-components.png" height="40" width="auto"  /></a>
-<br/>
-Styled
-</td>
+	<a href="#StyledComponents">
+	<img src="example/public/assets/images/styled-components.png" height="40" width="auto"  /></a>
+	<br/>StyledComponents</td>
 </tr>
 </table>
 
@@ -1201,7 +1211,8 @@ Dont forget to use ```Switch``` NotFound component no matter what path we’re o
 
 
 ### Redirecting old URL to new URL in ReactJS
-```
+
+```javascript
 ...
 import { Router, Route, Switch, Redirect } from 'react-router-dom';
 ...
@@ -1311,8 +1322,8 @@ defaults.global.animation = false; // Disable animating charts by default.
 ### Setting Up Redux with React
 
 1. Add follwing package on ```package.json``` file
-```
-//package.json
+```javascript
+// package.json
 {
 	name:"..."
 	...
@@ -1368,8 +1379,8 @@ export default customHistory;
 
 
 2. Import into ```Routes.js```
-```
-//Routes.js
+```javascript
+// Routes.js
 ...
 import history from "./History";
 ...
@@ -1737,10 +1748,7 @@ export default DataFetchPage;
 
 
 ### :date: How to Add Date Ranger Picker in ReactJS 
-1.
-```javascript
-yarn add react-dates
-```
+1. ``` yarn add react-dates ```
 
 
 2. An example for date range component file code
@@ -1977,7 +1985,8 @@ My Text
 
 
 #### Module not found: Can't resolve 'style'
-```npm install style-loader --save-dev````
+
+``` npm install style-loader --save-dev ```
 
 
 
@@ -2256,7 +2265,7 @@ export function changeState(){
 
 ### TypeError: __WEBPACK_IMPORTED_MODULE_0_react___default(...) is not a function
 
-```
+```javascript
 // Wrong
 class D3Map extends React(){
 	// ...
@@ -2264,7 +2273,7 @@ class D3Map extends React(){
 ```
 
 
-```
+```javascript
 // Right
 class D3Map extends Component{
 	// 	...
@@ -2275,12 +2284,12 @@ class D3Map extends Component{
 
 
 ### Syntax error: src/containers/Chartsjs/index.js: Unexpected token, expected ;
-```
+```javascript
 // WRONG
 export default from './Chartsjs'
 ```
  
-```
+```javascript
 // Right
 export { default } from './Chartsjs'
 ```
