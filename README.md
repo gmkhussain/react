@@ -2066,6 +2066,44 @@ npm install cross-env
 
 # Errors, Issues & Common mistakes in React
 
+
+### Expected an assignment or function call and instead saw an expression  no-unused-expressions
+```javascript
+import React from "react";
+import { Link } from "react-router-dom";
+
+const HomePage = () => {
+    <div>
+        <h1>Home Page</h1>
+        <Link to="/login">Login</Link>
+    </div>
+}
+
+export default HomePage;
+```
+
+Note: replace curly {} with rounded brackets ()
+
+```javascript
+...
+const HomePage = () => (
+    <div>
+        <h1>Home Page</h1>
+        <Link to="/login">Login</Link>
+    </div>
+)
+...
+```
+
+
+
+
+
+
+
+
+
+
 ### match.params returns empty even when URL contains params 
 <b>Note:</b> make sure you have added params in ```routes.js```
 
