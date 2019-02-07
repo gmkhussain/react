@@ -66,3 +66,19 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+
+
+# Semantic-UI for React
+https://react.semantic-ui.com/
+
+```
+yarn add semantic-ui-react semantic-ui-css
+```
+
+### After install,  import the minified CSS file in your app's entry file:
+```javascript
+import 'semantic-ui-css/semantic.min.css'
+```
