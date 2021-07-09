@@ -1,6 +1,6 @@
 import React from 'react'
 
-function E22Card(props) {
+function E23Array(props) {
     
     const myStyle = {
         color: 'white',
@@ -11,12 +11,11 @@ function E22Card(props) {
 
     return  <>
                 <div className="card" style={myStyle}>
-                    <h2>{props.idx || "Index" }</h2>
-                    <img src={props.image || "https://picsum.photos/50" } alt={props.idx} />
+                    <img src={props.image || "https://picsum.photos/50" } alt="" />
                     <h4> {props.head || "default head" } </h4>
                     <p> {props.content || "default content " } </p>
                 </div>
             </>
 }
 
-export default E22Card;
+export default E23Array;
