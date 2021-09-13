@@ -3,8 +3,9 @@ import E17ifElse from './Comp/E17ifElse'
 import E22Card from "./Comp/E22Card";
 import E23Array from './Comp/E23Array';
 import sdata from './Comp/E23Array/data';
-import E38SlotMachine from "./Comp/E28SlotMachine"
+import E28SlotMachine from "./Comp/E28SlotMachine"
 
+import GetInputValueOnChange from './Comp/Etc/GetInputValueOnChange'
 
 
   function App() {
@@ -18,7 +19,9 @@ import E38SlotMachine from "./Comp/E28SlotMachine"
   return (
     <div className="App">
         
-        <E38SlotMachine/>
+        <GetInputValueOnChange/>
+
+        <E28SlotMachine/>
 
         <div><h4>---</h4></div>
 
@@ -49,7 +52,7 @@ import E38SlotMachine from "./Comp/E28SlotMachine"
       {/* E25 React Developer Tool */}
       {/* If Else */}
 
-      
+      {/* E5 Helloworld */}
     
     </div>
   );
