@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { BookItem } from './BookItem'
 
 export class Books extends Component {
     state = {
-        book: [],
+        books: [],
         isLoaded: false
     }
 
     componentDidMount() {
         axios.get('http://localhost/projects/wordpress/wpv/wp-json/wp/v2/posts')
         .then(res=> this.setState ({
-            book: res.data,
+            books: res.data,
             isLoaded: true
         }))
         .catch(err => {
@@ -20,11 +21,23 @@ export class Books extends Component {
     }
 
     render() {
-        console.log(this.state)
+        // console.log(this.state)
+
+        const { books, isLoaded } = this.state
+        console.log("books", books)
+
+        if(isLoaded === true) {
+            return (
+                <div>
+                    {books.map(book=>(
+                        <BookItem key={book.id} book={book} />
+                    ))}
+                </div>
+            )
+        }
+
         return (
-            <div>
-                check console
-            </div>
+            <div>Loading...</div>
         )
     }
 }
