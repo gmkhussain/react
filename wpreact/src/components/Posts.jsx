@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
-import SinglePost from './SinglePost';
 import axios from 'axios' 
 import { Link } from "react-router-dom";
 
 
 export class Posts extends Component {
     
-    state = {
-        posts: [],
-        isLoaded: false,
-        error: ''
+	constructor( props ) {
+		super( props );
+        this.state = {
+            posts: [],
+            isLoaded: false,
+            error: ''
+        }
     }
 
     componentDidMount() {
@@ -48,7 +50,7 @@ export class Posts extends Component {
                             <div className="card-body">
                                 <h5 className="card-title">{post.id} | {post.title.rendered}</h5>
                                 <p className="card-text"> {post.content.rendered} </p>
-                                <Link to={`/post/${post.id}`} >View</Link>
+                                <Link exact="true" to={`/post/${post.id}`} >View</Link>
                             </div>
                         
                         
