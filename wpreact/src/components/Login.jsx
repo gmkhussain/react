@@ -1,6 +1,7 @@
 import  React  from 'react'
 import clientConfig from '../config/client-config'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 class Login extends React.Component {
 
@@ -70,11 +71,13 @@ class Login extends React.Component {
 
         const { username, password, error, loggedIn } = this.state;
 
+        
+
         return (
             <section>
                 <div className="container">
 
-                    <h4>Login | State: {loggedIn ? ' You are logged in' : ' Login Now '} </h4>
+                    <h4>Login | State: {loggedIn ? <div><Redirect to="/dashboard" />  ' You are logged in' </div> : ' Login Now '} </h4>
                     
                     { error ? <div class="alert alert-danger"> ${error} </div> : ' ' }
 

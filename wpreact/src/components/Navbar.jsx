@@ -5,14 +5,21 @@ import authConfig from '../config/auth-config'
 class Navbar extends React.Component {
 
     render() {
+
+        const handleLogout = () => {
+            localStorage.removeItem( 'token' );
+    
+            window.location.href = '/';
+        };
+
         
         console.log(authConfig)
 
         return (
-            <header>
+            <header className=" bg-dark text-white">
                 <div className="container">
                 
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <nav className="navbar navbar-expand-lg  bg-dark text-white">
                     <div className="container-fluid">
                         <span className="navbar-brand">Navbar</span>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +38,7 @@ class Navbar extends React.Component {
                                 
                                     { authConfig.authToken 
                                     ? 
-                                      <Link className="nav-link" to="/logout">Logout</Link>
+                                      <button className="nav-link" onClick={handleLogout}>Logout</button>
                                     : 
                                       <Link className="nav-link" to="/login">Login</Link>
                                     }

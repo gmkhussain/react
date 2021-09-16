@@ -44,7 +44,7 @@ export class Posts extends Component {
 
                     {posts.map(post=>(
                         
-                        <div key={post.id}  className="card">
+                        <div key={post.id}  className="card  bg-dark text-white">
                           
                           
                             <div className="card-body">
