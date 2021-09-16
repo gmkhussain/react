@@ -1,8 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import authConfig from '../config/auth-config'
 
 class Navbar extends React.Component {
+
     render() {
+        
+        console.log(authConfig)
+
         return (
             <header>
                 <div className="container">
@@ -19,7 +24,17 @@ class Navbar extends React.Component {
                                     <Link className="nav-link" exact="true" to="/">Home</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to="posts">Posts</Link>
+                                    <Link className="nav-link" to="/posts">Posts</Link>
+                                </li>
+
+                                <li className="nav-item">
+                                
+                                    { authConfig.authToken 
+                                    ? 
+                                      <Link className="nav-link" to="/logout">Logout</Link>
+                                    : 
+                                      <Link className="nav-link" to="/login">Login</Link>
+                                    }
                                 </li>
 
                             </ul>

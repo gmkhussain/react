@@ -22,7 +22,6 @@ export class SinglePost extends React.Component {
         let _id = this.props.computedMatch.params.id;
         console.log(_id)
 
-
         axios.get( `http://localhost/projects/wordpress/wpv/wp-json/wp/v2/posts/`+_id )
 				.then( res => {
 					console.warn( res.data );

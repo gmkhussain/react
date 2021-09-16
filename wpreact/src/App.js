@@ -9,6 +9,7 @@ import './App.css';
 import Navbar from './components/Navbar'
 import Posts from './components/Posts'
 import SinglePost from './components/SinglePost'
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
           </Route>
           <Route path="/posts">
             <Posts />
+          </Route>
+          
+          <Route exact path="/login">
+            <Login />
           </Route>
 
           {/* <Route path="/:post/:id/" exact component={Posts} /> */}
