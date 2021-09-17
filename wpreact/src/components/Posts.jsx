@@ -38,7 +38,6 @@ export class Posts extends Component {
                 <section>
                   <div className="container">
 
-                  
                     {posts.length ? ` Has ${posts.length} Post ` : " No Post " }
 
                     {posts.map(post=>(

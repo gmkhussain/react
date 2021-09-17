@@ -46,7 +46,7 @@ export class SinglePost extends React.Component {
         if(isLoaded === true ) {
 
             return (<section>
-                <div className="container">
+                <div className="container text-white">
                     <h4>Post</h4>
                     
                     <p>{post.title.rendered}</p>
@@ -58,7 +58,11 @@ export class SinglePost extends React.Component {
        
         return(
             <div>
-                { isLoaded===false ? 'Loading...' : '' }
+                { isLoaded===false ? 
+                
+                    <div class="container text-white">Loading...</div>
+                
+                : '' }
             </div>    
         )
         
