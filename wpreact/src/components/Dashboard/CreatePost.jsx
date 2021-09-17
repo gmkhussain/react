@@ -1,7 +1,11 @@
 import React from 'react'
+import axios from 'axios'
+import clientConfig from '../../config/client-config'
+import authConfig, { apiHeaderCofig } from '../../config/auth-config'
 
 
 class CreatePost extends React.Component {
+
     constructor(props) {
         super(props)
         this.state = {
@@ -10,7 +14,8 @@ class CreatePost extends React.Component {
                 title: "New title",
                 content: "New content",
                 status: "publish"
-            }
+            },
+            loading: false,
         }
     }
 
@@ -32,8 +37,44 @@ class CreatePost extends React.Component {
     }
 
 
-    render() {
+
+    
+    onSubmitHanlder = ( event ) => {
+        event.preventDefault();
+        console.log("onSubmitHanlder")
         
+        this.setState({ loading: true })
+
+        const formData = {
+            title: this.state.post.title,
+            content: this.state.post.content
+        }
+
+        console.log( formData, apiHeaderCofig )
+        axios.post(`${clientConfig.rootUrl}/wp-json/wp/v2/posts`, formData, apiHeaderCofig )
+        .then( res => {
+            console.log("re")
+        }).catch( err => {
+            console.log("e")
+        })
+
+
+    }
+
+
+    
+    
+
+    render() {
+    
+        const  { loading } = this.state;
+
+        // {
+        //     if( loading === true ) {
+        //         return <div class="container text-white">Loading..</div>
+        //     }
+        // }
+
         const { post } = this.state
 
         return (
@@ -42,7 +83,7 @@ class CreatePost extends React.Component {
 
               
 
-              <form>
+              <form onSubmit={this.onSubmitHanlder}>
                 <div className="form-group">
                     <input 
                         type="text"

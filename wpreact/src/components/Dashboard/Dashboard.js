@@ -14,10 +14,14 @@ class Dashboard extends React.Component {
         return (
             <div className="container text-white">
                 <h4>Dashboard</h4>
-
+                
                 <Link to="/create-post">Add Post</Link>
+                <div class="row">
+                
+                    <Posts />
+                
+                </div>
 
-                <Posts />
             </div>
         )
     }
