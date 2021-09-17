@@ -1,4 +1,4 @@
-import  React  from 'react'
+import React from 'react'
 import clientConfig from '../config/client-config'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
@@ -10,7 +10,7 @@ class Login extends React.Component {
         this.state = {
             username: 'admin',
             password: 'admin123',
-            isLoaded: false,
+            isLoaded: true,
             loggedIn: false,
             error: ''
         }
@@ -27,13 +27,18 @@ class Login extends React.Component {
 
         console.log(clientConfig.rootUrl)
 
+
+        // Loading... on submit
+        this.setState( {
+            isLoaded: false
+        })
+
         axios.post(`${clientConfig.rootUrl}/wp-json/jwt-auth/v1/token`, loginInfo)
             .then( res=> {
                 console.log(res)
 
                 if ( undefined === res.data.token ) {
-                    this.setState( { error: res.data.message, loading: false } );
-                    alert("A")
+                    this.setState( { error: res.data.message, isLoaded: true } );
                     return;
                 }
                 
@@ -43,16 +48,15 @@ class Login extends React.Component {
 
                 this.setState(
                     {
-                        isLoaded: false,
+                        isLoaded: true,
                         token: token,
                         loggedIn: true,
                     }
                 )
             })
             .catch( err => {
-
                 this.setState( {
-                    error: err.response.data.message,
+                    error: "Error in login",
                     isLoaded: false
                 } )
             } )
@@ -69,14 +73,23 @@ class Login extends React.Component {
 
     render() {
 
-        const { username, password, error, loggedIn } = this.state;
+        const { username, password, error, loggedIn, isLoaded } = this.state;
+
+        { 
+            if(isLoaded === false ) {
+              return(  <div className="container text-center text-white">loading...</div> )
+            }
+        }
 
         
-
+        if( loggedIn || localStorage.getItem('token') ) {
+            return <Redirect to="/dashboard" />
+        }
+        
         return (
-            <section>
-                <div className="container">
-
+            <section >
+                <div className="container text-white">
+                    
                     <h4>Login | State: {loggedIn ? <div><Redirect to="/dashboard" />  ' You are logged in' </div> : ' Login Now '} </h4>
                     
                     { error ? <div class="alert alert-danger"> ${error} </div> : ' ' }
