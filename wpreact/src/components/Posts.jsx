@@ -24,7 +24,6 @@ export class Posts extends Component {
             error: "Re try"
         })
         )
-
     }
 
     render() {

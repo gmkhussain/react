@@ -21,7 +21,7 @@ class Navbar extends React.Component {
                 
                 <nav className="navbar navbar-expand-lg  bg-dark text-white">
                     <div className="container-fluid">
-                        <span className="navbar-brand">Navbar</span>
+                        <span className="navbar-brand">&reg;</span>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                         </button>
@@ -33,16 +33,25 @@ class Navbar extends React.Component {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/posts">Posts</Link>
                                 </li>
-
-                                <li className="nav-item">
                                 
-                                    { authConfig.authToken 
-                                    ? 
-                                      <button className="nav-link" onClick={handleLogout}>Logout</button>
-                                    : 
+                                
+                                { authConfig.authToken 
+                                ? 
+                                 <>
+                                  <li className="nav-item">
+                                    <Link className="nav-link" to="/dashboard">Dashboard</Link>
+                                  </li>
+
+                                   <li className="nav-item">
+                                    <button className="nav-link" onClick={handleLogout}>Logout</button>
+                                  </li>
+                                 </>
+                                : 
+                                    <li className="nav-item">
                                       <Link className="nav-link" to="/login">Login</Link>
-                                    }
-                                </li>
+                                    </li>
+                                }
+                                
 
                             </ul>
 

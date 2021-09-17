@@ -10,6 +10,8 @@ import Navbar from './components/Navbar'
 import Posts from './components/Posts'
 import SinglePost from './components/SinglePost'
 import Login from "./components/Login";
+import Dashboard from "./components/Dashboard/Dashboard"
+import CreatePost from "./components/Dashboard/CreatePost"
 
 function App() {
   return (
@@ -30,6 +32,14 @@ function App() {
           
           <Route exact path="/login">
             <Login />
+          </Route>
+
+          <Route exact path="/dashboard">
+            <Dashboard />
+          </Route>
+
+          <Route exact path="/create-post">
+            <CreatePost />
           </Route>
 
           {/* <Route path="/:post/:id/" exact component={Posts} /> */}
