@@ -7,12 +7,13 @@ class Dashboard extends React.Component {
         super(props)
         this.state = {
             pageTitle: "Dashboard",
-            posts: [{id:-1,title: "adsd"}],
+            posts: [{ id:-1,title: "adsd"} ],
             loaded: false
         }
     }
 
     componentDidMount() {
+
         console.log("Before")        
         const functionAwaitingPromise = async () => {
           let res = await post.list();
@@ -32,6 +33,13 @@ class Dashboard extends React.Component {
 
     render() {
 
+        const deletPost = async () => {
+            let res = await post.delete();
+            console.log("Delete")
+        }
+
+        
+
         const { posts, loaded } = this.state
  
 
@@ -42,22 +50,25 @@ class Dashboard extends React.Component {
 
                 <Link to="/create-post">Add Post</Link>
 
-                <div class="co-sm-12 ">
+                <div className="co-sm-12 ">
 
                     { loaded  ? 
                     <div className="row">
-                        <table class="table text-white">
+                        <table className="table text-white">
+                            <tbody>
+
                             {posts.map(post=>(
                                <tr key={post.id}>
                                   <td> {post.id} </td>
                                   <td> {post.title.rendered } </td>
                                   <td> 
-                                    <a class="text-primary">Edit</a>
-                                    <a class="text-danger">Delete</a>
+                                    <a className="text-primary">Edit</a>
+                                    <button onClick={deletPost} className="text-danger">Delete</button>
                                     <Link to={`/post/${post.id}`}>View</Link>
                                   </td>
                                </tr>
                             ))}
+                            </tbody>
                         </table>
                     </div>
                     : 'No Data' }    
