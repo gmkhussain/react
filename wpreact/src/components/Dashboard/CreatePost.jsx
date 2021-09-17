@@ -25,8 +25,8 @@ class CreatePost extends React.Component {
         console.log("VALUE: " , event.target.value)
         
         /*
-            "A component is changing a controlled input to be uncontrolled"
-            Use prevState
+          "A component is changing a controlled input to be uncontrolled"
+          Use prevState
         */
         this.setState( (prevState)=> ({
             post: { 
@@ -47,17 +47,20 @@ class CreatePost extends React.Component {
 
         const formData = {
             title: this.state.post.title,
-            content: this.state.post.content
+            content: this.state.post.content,
+            status: this.state.post.status
         }
 
-        console.log( formData, apiHeaderCofig )
+        // console.log( formData, apiHeaderCofig )
         axios.post(`${clientConfig.rootUrl}/wp-json/wp/v2/posts`, formData, apiHeaderCofig )
         .then( res => {
             console.log("re")
+            this.setState({
+                loading: false
+            })
         }).catch( err => {
-            console.log("e")
+            console.log("Error")
         })
-
 
     }
 
@@ -66,23 +69,22 @@ class CreatePost extends React.Component {
     
 
     render() {
-    
+
         const  { loading } = this.state;
 
-        // {
-        //     if( loading === true ) {
-        //         return <div class="container text-white">Loading..</div>
-        //     }
-        // }
+        {
+            if( loading === true ) {
+                return <div className="container text-white">Loading..</div>
+            }
+        }
 
         const { post } = this.state
 
         return (
             <div className="container text-white">
+
               <h4>Create Post</h4>
-
               
-
               <form onSubmit={this.onSubmitHanlder}>
                 <div className="form-group">
                     <input 
@@ -101,6 +103,14 @@ class CreatePost extends React.Component {
                         value={post.content}
                         onChange={this.onChangeHandler}
                         />
+                </div>
+
+                <div className="form-group y-2">
+                    <select type="text" name="status" value={post.status} className="form-control"
+                    onChange={this.onChangeHandler} >
+                        <option value="draft">Darft</option>
+                        <option value="publish">Publish</option>
+                    </select>
                 </div>
 
                 <div className="form-group py-4">
