@@ -11,5 +11,10 @@ export default {
     delete(id) {
         console.log("Delete...")
         return axios.delete(clientConfig.rootUrl + `wp-json/wp/v2/posts/` + id, apiHeaderCofig );
+    },
+    edit(id, updatedData) {
+        console.log("Edit...", updatedData)
+        console.log("ID Edit...", id)
+        return axios.patch(clientConfig.rootUrl + `wp-json/wp/v2/posts/` + id, updatedData , apiHeaderCofig);
     }
 }

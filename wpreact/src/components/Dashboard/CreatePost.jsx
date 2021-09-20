@@ -72,7 +72,6 @@ class CreatePost extends React.Component {
         }).catch( err => {
             console.log("Error")
         })
-
     }
 
 
