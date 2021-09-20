@@ -75,11 +75,11 @@ class Login extends React.Component {
 
         const { username, password, error, loggedIn, isLoaded } = this.state;
 
-        { 
-            if(isLoaded === false ) {
-              return(  <div className="container text-center text-white">loading...</div> )
-            }
+         
+        if(isLoaded === false ) {
+            return(  <div className="container text-center text-white">loading...</div> )
         }
+    
 
         
         if( loggedIn || localStorage.getItem('token') ) {

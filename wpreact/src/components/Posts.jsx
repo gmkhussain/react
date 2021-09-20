@@ -10,6 +10,7 @@ export class Posts extends Component {
         this.state = {
             posts: [],
             isLoaded: false,
+            postCreated: false,
             error: ''
         }
     }

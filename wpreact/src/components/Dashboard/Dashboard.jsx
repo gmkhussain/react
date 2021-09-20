@@ -12,10 +12,8 @@ class Dashboard extends React.Component {
         }
     }
 
-    componentDidMount() {
-
-        console.log("Before")        
-        const functionAwaitingPromise = async () => {
+        
+    async getAllPosts() {
           let res = await post.list();
           console.log("Result: ", res.data)
 
@@ -23,25 +21,28 @@ class Dashboard extends React.Component {
           if (res.status === 200) {
             console.log("After")
           }
-        }
-
-        functionAwaitingPromise()
-        console.log("AAA")
     }
     
+
+    async deletePost (index) {
+        let res = await post.delete(index);
+        console.log("Delete", res)
+        this.getAllPosts()
+    }
+
+    
+
+
+    componentDidMount() {
+        this.getAllPosts()
+        console.log("AAA")
+    }
+
 
 
     render() {
 
-        const deletPost = async () => {
-            let res = await post.delete();
-            console.log("Delete")
-        }
-
-        
-
         const { posts, loaded } = this.state
- 
 
         return (
             
@@ -62,8 +63,8 @@ class Dashboard extends React.Component {
                                   <td> {post.id} </td>
                                   <td> {post.title.rendered } </td>
                                   <td> 
-                                    <a className="text-primary">Edit</a>
-                                    <button onClick={deletPost} className="text-danger">Delete</button>
+                                    <Link to='' className="text-primary">Edit</Link>
+                                    <button onClick={() => { this.deletePost(`${post.id}`); }} className="text-danger">Delete {post.id}</button>
                                     <Link to={`/post/${post.id}`}>View</Link>
                                   </td>
                                </tr>
@@ -71,7 +72,7 @@ class Dashboard extends React.Component {
                             </tbody>
                         </table>
                     </div>
-                    : 'No Data' }    
+                    : 'No Data' }
                     
                 </div>
 

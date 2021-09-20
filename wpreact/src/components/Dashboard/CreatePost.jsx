@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import clientConfig from '../../config/client-config'
-import authConfig, { apiHeaderCofig } from '../../config/auth-config'
+import { apiHeaderCofig } from '../../config/auth-config'
 
 
 class CreatePost extends React.Component {
@@ -11,11 +12,14 @@ class CreatePost extends React.Component {
         this.state = {
             pageTitle: "Create Post",
             post: {
+                id: '',
                 title: "New title",
                 content: "New content",
-                status: "publish"
+                status: "publish",
             },
+            postCreated: false,
             loading: false,
+            message: ' '
         }
     }
 
@@ -54,10 +58,17 @@ class CreatePost extends React.Component {
         // console.log( formData, apiHeaderCofig )
         axios.post(`${clientConfig.rootUrl}/wp-json/wp/v2/posts`, formData, apiHeaderCofig )
         .then( res => {
-            console.log("re")
             this.setState({
-                loading: false
+                postCreated: !! res.data.id, // add true
+                post: { 
+                  id: res.data.id
+                },
+                loading: false,
+                message: res.data.id ? 'New Post Created' : ''
             })
+            
+            console.log( "Res: " , res.data )
+
         }).catch( err => {
             console.log("Error")
         })
@@ -70,13 +81,13 @@ class CreatePost extends React.Component {
 
     render() {
 
-        const  { loading } = this.state;
+        const  { message, loading } = this.state;
 
-        {
-            if( loading === true ) {
-                return <div className="container text-white">Loading..</div>
-            }
+        
+        if( loading === true ) {
+            return <div className="container text-white">Loading..</div>
         }
+    
 
         const { post } = this.state
 
@@ -85,6 +96,8 @@ class CreatePost extends React.Component {
 
               <h4>Create Post</h4>
               
+             { message ? <div className="alert alert-success"><strong>New</strong> Post Created <Link to={`/post/${post.id}`}>View</Link> </div> : ' ' }
+
               <form onSubmit={this.onSubmitHanlder}>
                 <div className="form-group">
                     <input 

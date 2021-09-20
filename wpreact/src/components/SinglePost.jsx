@@ -43,12 +43,15 @@ export class SinglePost extends React.Component {
         console.log("Post: ", this.state)
 
         
+
         if(isLoaded === true ) {
 
             return (<section>
                 <div className="container text-white">
                     <h4>Post</h4>
                     
+                    <p> {error} </p>
+
                     <p>{post.title.rendered}</p>
  
                 </div>
