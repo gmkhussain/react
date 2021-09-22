@@ -9,20 +9,22 @@ export class Posts extends Component {
 		super( props );
         this.state = {
             posts: [],
-            isLoaded: false,
+            loading: true,
             postCreated: false,
             error: ''
         }
     }
 
-    componentDidMount() {
-         axios.get('http://localhost/projects/wordpress/wpv/wp-json/wp/v2/posts')
+    
+    componentDidMount() { 
+
+        axios.get('http://localhost/projects/wordpress/wpv/wp-json/wp/v2/posts')
         .then(res=> this.setState ({
             posts: res.data,
-            isLoaded: true
+            loading: false
         }))
         .catch(err => this.setState ({
-            error: "Re try"
+            error: "Retry!"
         })
         )
     }
@@ -30,47 +32,44 @@ export class Posts extends Component {
     render() {
         // console.log(this.state)
 
-        const { posts, isLoaded, error } = this.state
+        const { posts, loading, error } = this.state
         console.log("Posts: ", posts)
 
-        
-        if(isLoaded === true) {
+        if( loading === true )  {
+            return ( <div className="container">Loading...</div> )
+        }
+
+
+        if( loading === false ) {
             return (
                 <section>
                   <div className="container">
 
-                    {posts.length ? ` Has ${posts.length} Post ` : " No Post " }
+                    {posts.length ? ` Has ${posts.length} Post ` : " 0 Post " }
 
                     {posts.map(post=>(
                         
                         <div key={post.id}  className="card  bg-dark text-white">
-                          
                           
                             <div className="card-body">
                                 <h5 className="card-title">{post.id} | {post.title.rendered}</h5>
                                 <p className="card-text"> {post.content.rendered} </p>
                                 <Link exact="true" to={`/post/${post.id}`} >View</Link>
                             </div>
-                        
-                        
-                          {/* {console.log("MPA", post)} 
-                            <SinglePost post={post} /> */}
-                           
+                                                   
                         </div>
                     ))}
                   </div>
                 </section>
             )
-        }
+        } 
 
         return (
             <div className="container text-center">
-                
+
                 { error ? <div className="alert alert-danger">Retry error in loading data.</div>: '' }  
-        
-                { isLoaded===false ? 'Loading...' : '' }
-                
-            
+
+
             </div>
         )
     }

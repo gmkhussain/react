@@ -92,7 +92,7 @@ class Login extends React.Component {
                     
                     <h4>Login | State: {loggedIn ? <div><Redirect to="/dashboard" />  ' You are logged in' </div> : ' Login Now '} </h4>
                     
-                    { error ? <div class="alert alert-danger"> ${error} </div> : ' ' }
+                    { error ? <div className="alert alert-danger"> ${error} </div> : ' ' }
 
                     <form onSubmit={ this.onSubmitForm }>
                         <div className="form-group">

@@ -15,7 +15,6 @@ export class SinglePost extends React.Component {
             isLoaded: false,
             error: ''
         }
-       
 	}
 
     componentDidMount() {
@@ -63,7 +62,7 @@ export class SinglePost extends React.Component {
             <div>
                 { isLoaded===false ? 
                 
-                    <div class="container text-white">Loading...</div>
+                    <div className="container text-white">Loading...</div>
                 
                 : '' }
             </div>    

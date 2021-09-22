@@ -6,7 +6,7 @@ import axios from 'axios';
 export default {
     list() {
         console.log("Services -> Listing")
-        return axios.get(clientConfig.rootUrl + `/wp-json/wp/v2/posts` );
+        return axios.get(clientConfig.rootUrl + `wp-json/wp/v2/posts` );
     },
     delete(id) {
         console.log("Delete...")

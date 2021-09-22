@@ -6,6 +6,8 @@ class Navbar extends React.Component {
 
     render() {
 
+
+
         const handleLogout = () => {
             localStorage.removeItem( 'token' );
     
@@ -33,8 +35,7 @@ class Navbar extends React.Component {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/posts">Posts</Link>
                                 </li>
-                                
-                                
+                               
                                 { authConfig.authToken 
                                 ? 
                                  <>
