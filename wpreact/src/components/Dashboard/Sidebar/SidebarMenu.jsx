@@ -1,36 +1,36 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import NavLink from "../../NavLink";
+import AppContext from "../../context/AppContext";
+ 
 import PostMenu from "./Menus/PostMenu";
-import AppContext from '../../context/AppContext'
-
+import PageMenu from "./Menus/PageMenu";
 
 
 const SidebarMenu = () => {
 
-	
+	const [ store, setStore ] = useContext( AppContext );
 
-	const [ store, setStore ] = useContext( AppContext )
-	console.log("Context store", store)
-	
-    return <>
+	return (
 
-        <nav id="sidebar" >
+			<nav id="sidebar" className={ store.sidebarActive ? 'active' : '' }>
 				<div className="sidebar-header">
-					<NavLink to={ `/dashboard ` }>React with WP</NavLink>
+					<NavLink to={ `/dashboard ` }>Dashboard</NavLink>
 				</div>
 
+
 				<ul className="list-unstyled components">
-                    <PostMenu/>
+				 	<PostMenu />
+					<PageMenu />
 					<li>
-						<NavLink to={ `/media` }>Media</NavLink>
+						<a href="#">Media</a>
 					</li>
 					<li>
-                        <NavLink to={ `/users` }>Users</NavLink>
+						<a href="#">Users</a>
 					</li>
 				</ul>
 			</nav>
-    </>
-}
 
+	)
+};
 
-export default SidebarMenu
+export default SidebarMenu;

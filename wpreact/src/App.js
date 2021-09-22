@@ -11,13 +11,13 @@ function App() {
   return (
     <AppProvider>
       <Router>
-          <Navbar />
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
             <ClientRoutes />
             {/* <AdminRoutes /> */}
           </Switch>
+          
       </Router>
     </AppProvider>
   );

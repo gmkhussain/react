@@ -1,17 +1,21 @@
 import { Route } from "react-router"
+import Navbar from '../components/Navbar'
 
 import Posts from '../components/Posts'
 import SinglePost from '../components/SinglePost'
 import Login from "../components/Login";
 
 import Dashboard from "../components/Dashboard/Dashboard"
+import DashboardPosts from "../components/Dashboard/Posts/Posts"
 import CreatePost from '../components/Dashboard/CreatePost'
+
+import PublicLayout from "../components/layout/PublicLayout";
 
 const ClientRoutes = () => {
     return <>
     
         <Route exact path="/">
-           <div>Home</div>
+          <PublicLayout><div>Home</div></PublicLayout>
         </Route>
        
         <Route path="/posts">
@@ -35,7 +39,7 @@ const ClientRoutes = () => {
         </Route>
 
         <Route exact path="/dashboard/posts">
-          <div>Admin|Post</div>
+          <DashboardPosts/>
         </Route>
          
         <Route exact path="/create-post">

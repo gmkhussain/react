@@ -1,10 +1,12 @@
-import React from 'react'
-import NavLink from '../../NavLink'
+import React from 'react';
+import DashboardLayout from "../../layout/DashboardLayout";
 
-const Posts = () => {
-    return <div>
-        POST
-    </div>
-}
+const DashboardPosts = () => {
+	return (
+		<DashboardLayout>
+			Posts
+		</DashboardLayout>
+	)
+};
 
-export default Posts
+export default DashboardPosts;

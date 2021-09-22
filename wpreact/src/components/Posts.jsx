@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios' 
 import { Link } from "react-router-dom";
 
+import PublicLayout from './layout/PublicLayout';
+
 
 export class Posts extends Component {
     
@@ -30,6 +32,8 @@ export class Posts extends Component {
     }
 
     render() {
+
+
         // console.log(this.state)
 
         const { posts, loading, error } = this.state
@@ -42,7 +46,7 @@ export class Posts extends Component {
 
         if( loading === false ) {
             return (
-                <section>
+                <PublicLayout>
                   <div className="container">
 
                     {posts.length ? ` Has ${posts.length} Post ` : " 0 Post " }
@@ -60,16 +64,13 @@ export class Posts extends Component {
                         </div>
                     ))}
                   </div>
-                </section>
+                </PublicLayout>
             )
         } 
 
         return (
             <div className="container text-center">
-
                 { error ? <div className="alert alert-danger">Retry error in loading data.</div>: '' }  
-
-
             </div>
         )
     }
