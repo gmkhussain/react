@@ -14,10 +14,15 @@ const Login = () => {
         password: 'admin123',
         loading: false,
         loggedIn: false,
-        error: ''
+        error: '<strong>No Error</strong> right now'
     } );
     
 
+    const createMarkup = ( data ) => ({
+		__html: data
+	});
+
+    
     const onSubmitForm = (event) => {
 
         event.preventDefault()
@@ -98,17 +103,18 @@ const Login = () => {
 
         
         if( store.token ) {
-            return <Redirect to={`/dashboard`} noThrow />
+            return <Redirect to={`/dashboard`} />
         } else {
+            
             
             
         return (
             <section >
-                <div className="container text-white">
+                <div className="container">
+                
+                    <h4>Login | State: { store.token ? <div><Redirect to={`/dashboard`} />  ' You are logged in' </div> : ' Login Now '} </h4>
                     
-                    <h4>Login | State: {loggedIn ? <div><Redirect to="/dashboard" />  ' You are logged in' </div> : ' Login Now '} </h4>
-                    
-                    { error ? <div className="alert alert-danger"> ${error} </div> : ' ' }
+                    { error ? <div className="alert alert-danger" dangerouslySetInnerHTML={ createMarkup(error) } /> : ' ' }
 
                     <form onSubmit={ onSubmitForm }>
                         <div className="form-group">

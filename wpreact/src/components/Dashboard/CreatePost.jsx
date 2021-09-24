@@ -85,7 +85,7 @@ class CreatePost extends React.Component {
         const  { message, loading } = this.state;
 
         if( loading === true ) {
-          return <DashboardLayout><div className="container text-black">Loading..</div></DashboardLayout>
+          return <DashboardLayout><div className="container">Loading..</div></DashboardLayout>
         }
     
 

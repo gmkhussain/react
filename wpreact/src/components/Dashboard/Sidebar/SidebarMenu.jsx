@@ -12,7 +12,7 @@ const SidebarMenu = () => {
 
 	return (
 
-			<nav id="sidebar" className={ store.sidebarActive ? 'active' : '' }>
+			<nav id="sidebar" className={ `bg-dark ${ store.sidebarActive ? 'active' : '' } `}>
 				<div className="sidebar-header">
 					<NavLink to={ `/dashboard ` }>Dashboard</NavLink>
 				</div>

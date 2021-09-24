@@ -7,11 +7,11 @@ const Content = ( props ) => {
 	const [ store ] = useContext( AppContext );
 
 	return (
-		<div id="content" className={ store.sidebarActive ? '' : 'active' }>
+		<div id="content" className={`bg-dark text-white ${ store.sidebarActive ? ' ' : 'active' } `}>
 			{/* Top Navbar */}
 			<Navbar/>
 			{/* Main Content */}
-			<div className="main-content">
+			<div className="main-content ">
 				{ props.children }
 			</div>
 		</div>
