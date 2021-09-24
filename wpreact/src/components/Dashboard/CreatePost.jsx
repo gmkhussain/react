@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import clientConfig from '../../config/client-config'
 import { apiHeaderCofig } from '../../config/auth-config'
 
+import DashboardLayout from '../layout/DashboardLayout'
+
 
 class CreatePost extends React.Component {
 
@@ -82,22 +84,21 @@ class CreatePost extends React.Component {
 
         const  { message, loading } = this.state;
 
-        
         if( loading === true ) {
-            return <div className="container text-white">Loading..</div>
+          return <DashboardLayout><div className="container text-black">Loading..</div></DashboardLayout>
         }
     
 
         const { post } = this.state
-
         return (
-            <div className="container text-white">
+            <DashboardLayout>
+              <div className="container text-white">
 
-              <h4>Create Post</h4>
+                <h4>Create Post</h4>
               
-             { message ? <div className="alert alert-success"><strong>New</strong> Post Created <Link to={`/post/${post.id}`}>View</Link> </div> : ' ' }
+                { message ? <div className="alert alert-success"><strong>New</strong> Post Created <Link to={`/post/${post.id}`}>View</Link> </div> : ' ' }
 
-              <form onSubmit={this.onSubmitHanlder}>
+                <form onSubmit={this.onSubmitHanlder}>
                 <div className="form-group">
                     <input 
                         type="text"
@@ -130,7 +131,9 @@ class CreatePost extends React.Component {
                 </div>
 
               </form>
-            </div>
+            
+              </div>
+            </DashboardLayout>
         )
     }
 }

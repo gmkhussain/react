@@ -8,7 +8,7 @@ import PageMenu from "./Menus/PageMenu";
 
 const SidebarMenu = () => {
 
-	const [ store, setStore ] = useContext( AppContext );
+	const [ store ] = useContext( AppContext );
 
 	return (
 
@@ -22,10 +22,10 @@ const SidebarMenu = () => {
 				 	<PostMenu />
 					<PageMenu />
 					<li>
-						<a href="#">Media</a>
+						<NavLink to={`/`}>Media</NavLink>
 					</li>
 					<li>
-						<a href="#">Users</a>
+						<NavLink to={`/`}>Users</NavLink>
 					</li>
 				</ul>
 			</nav>

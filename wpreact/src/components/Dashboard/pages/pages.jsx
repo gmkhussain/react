@@ -1,10 +1,10 @@
 import React from 'react';
-import DashboardLayout from "../../layouts/DashboardLayout";
+import DashboardLayout from "../../layout/DashboardLayout";
 
 const Pages = () => {
 	return (
 		<DashboardLayout>
-			Pages
+			Page...
 		</DashboardLayout>
 	)
 };

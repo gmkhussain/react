@@ -13,10 +13,12 @@ const PostMenu = () => {
 				data-toggle="collapse"
 				aria-expanded={ store.activeMenu.postMenuActive }
 				className={ `dropdown-toggle ${ ! store.activeMenu.postMenuActive ? 'collapsed' : '' }` }
+				
 				onClick={ ()  => setStore({
-					...store,
-					activeMenu: {  postMenuActive: ! store.activeMenu.postMenuActive }
-				}) }
+							...store,
+							activeMenu: {  postMenuActive: ! store.activeMenu.postMenuActive }
+					 }) }
+
 			>
 				Posts
 			</NavLink>

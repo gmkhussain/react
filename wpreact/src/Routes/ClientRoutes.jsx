@@ -1,5 +1,4 @@
 import { Route } from "react-router"
-import Navbar from '../components/Navbar'
 
 import Posts from '../components/Posts'
 import SinglePost from '../components/SinglePost'
@@ -7,6 +6,7 @@ import Login from "../components/Login";
 
 import Dashboard from "../components/Dashboard/Dashboard"
 import DashboardPosts from "../components/Dashboard/Posts/Posts"
+import Pages from '../components/Dashboard/pages/pages'
 import CreatePost from '../components/Dashboard/CreatePost'
 
 import PublicLayout from "../components/layout/PublicLayout";
@@ -34,15 +34,19 @@ const ClientRoutes = () => {
 
         {/* Admin Routes */}
 
-        <Route path="/dashboard">
+        <Route exact path="/dashboard">
             <Dashboard />
         </Route>
 
         <Route exact path="/dashboard/posts">
           <DashboardPosts/>
         </Route>
+
+        <Route exact path="/dashboard/pages">
+          <Pages/>
+        </Route>
          
-        <Route exact path="/create-post">
+        <Route exact path="/dashboard/create-post">
           <CreatePost />
         </Route>
         

@@ -413,3 +413,6 @@ a.article:hover {
 	animation: gradientBG 3s ease infinite;
 	margin-right: 20px;
 }
+.active > a {
+    background: #11b1ff !important;
+}

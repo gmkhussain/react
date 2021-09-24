@@ -5,8 +5,7 @@ import authConfig from '../config/auth-config'
 class Navbar extends React.Component {
 
     render() {
-
-
+ 
 
         const handleLogout = () => {
             localStorage.removeItem( 'token' );
@@ -15,7 +14,7 @@ class Navbar extends React.Component {
         };
 
         
-        console.log(authConfig)
+        // console.log(authConfig)
 
         return (
             <header className=" bg-dark text-white">

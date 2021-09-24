@@ -22,7 +22,7 @@ const PageMenu = () => {
 			</NavLink>
 			<ul className={ `collapse list-unstyled ${ store.activeMenu.pageMenuActive ? 'show' : '' }` } id="homeSubmenu">
 				<li>
-					<a href="#">All Pages</a>
+					<NavLink to="/dashboard/pages">All Pages</NavLink>
 				</li>
 				<li>
 					<NavLink to="/dashboard/create-page">Add New</NavLink>
