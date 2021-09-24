@@ -1,6 +1,6 @@
 import { Route } from "react-router"
 
-import Posts from '../components/Posts'
+import PublicPosts from '../components/PublicPosts'
 import SinglePost from '../components/SinglePost'
 import Login from "../components/Login";
 
@@ -18,8 +18,8 @@ const ClientRoutes = () => {
           <PublicLayout><div>Home</div></PublicLayout>
         </Route>
        
-        <Route path="/posts">
-           <Posts />
+        <Route exact path="/posts">
+           <PublicPosts />
         </Route>
         
         <Route exact path="/login">

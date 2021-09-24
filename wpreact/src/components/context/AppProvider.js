@@ -18,7 +18,6 @@ const AppProvider = ( props ) => {
         const userName = "Amoos";
 
         setStore( {...store, token: token, userName: userName } )
-        
         console.log("useEffect Store", store )
         
         // eslint-disable-next-line react-hooks/exhaustive-deps

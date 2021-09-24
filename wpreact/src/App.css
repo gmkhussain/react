@@ -78,12 +78,15 @@ a:focus {
 	max-width: 960px;
 }
 
+.main {
+	min-height: 100vh;
+}
+
 .navbar {
 	padding: 12px 10px;
 	background: #eee;
 	border: none;
 	border-radius: 0;
-	margin-bottom: 40px;
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
