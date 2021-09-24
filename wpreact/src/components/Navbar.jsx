@@ -4,20 +4,15 @@ import authConfig from '../config/auth-config'
 
 import ToggleSidebarBtn from '../components/Dashboard/Sidebar/ToggleSidebarBtn'
 
-class Navbar extends React.Component {
-
-    render() {
- 
+const Navbar = () => {
 
         const handleLogout = () => {
             localStorage.removeItem( 'token' );
     
             window.location.href = '/';
         };
-
         
         // console.log(authConfig)
-
         return (
             <header className=" bg-dark text-white">
                 <div className="container">
@@ -70,7 +65,7 @@ class Navbar extends React.Component {
                 
             </header>
         )
-    }
+    
 }
 
 
