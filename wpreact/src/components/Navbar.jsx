@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import authConfig from '../config/auth-config'
 
+import ToggleSidebarBtn from '../components/Dashboard/Sidebar/ToggleSidebarBtn'
+
 class Navbar extends React.Component {
 
     render() {
@@ -54,6 +56,11 @@ class Navbar extends React.Component {
                                 
 
                             </ul>
+
+                            {/*	If on dashboard page */}
+                            { window.location.pathname.includes( 'dashboard' ) ? (
+                                <ToggleSidebarBtn/> 
+                            ) : ''}
 
                         </div>
                     </div>
