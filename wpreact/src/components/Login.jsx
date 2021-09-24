@@ -1,22 +1,24 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import clientConfig from '../config/client-config'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import AppContext from './context/AppContext'
 
-class Login extends React.Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            username: 'admin',
-            password: 'admin123',
-            isLoaded: true,
-            loggedIn: false,
-            error: ''
-        }
-    }
+const Login = () => {
 
-    onSubmitForm = (event) => {
+    const [ store, setStore ] = useContext( AppContext )
+
+    const [ loginFields, setLoginFields ] = useState( {
+        username: 'admin',
+        password: 'admin123',
+        loading: false,
+        loggedIn: false,
+        error: ''
+    } );
+    
+
+    const onSubmitForm = (event) => {
 
         event.preventDefault()
         let loginInfo = {
@@ -29,8 +31,9 @@ class Login extends React.Component {
 
 
         // Loading... on submit
-        this.setState( {
-            isLoaded: false
+        setLoginFields( {
+            ...loginFields,
+            loading: true
         })
 
         axios.post(`${clientConfig.rootUrl}/wp-json/jwt-auth/v1/token`, loginInfo)
@@ -38,26 +41,38 @@ class Login extends React.Component {
                 console.log(res)
 
                 if ( undefined === res.data.token ) {
-                    this.setState( { error: res.data.message, isLoaded: true } );
+                    setLoginFields({
+                        ...loginFields,
+                        error: res.data.message,
+                        loading: false 
+                    });
                     return;
                 }
                 
-                const { token } = res.data;
+                const { token, user_nicename, user_email } = res.data;
                 localStorage.setItem( 'token', token );
-                //console.log(localStorage.getItem('token'))
+                localStorage.setItem( 'userName', user_nicename );
+                
+                console.log("token" , token)
+                setStore({
+                    ...store,
+                    loading: false,
+                    token: token,
+                });
+                
+                setLoginFields( {
+					...loginFields,
+					loading: false,
+					token: token,
+					userNiceName: user_nicename,
+					userEmail: user_email,
+				} )
 
-                this.setState(
-                    {
-                        isLoaded: true,
-                        token: token,
-                        loggedIn: true,
-                    }
-                )
             })
             .catch( err => {
-                this.setState( {
+                setLoginFields( {
                     error: "Error in login",
-                    isLoaded: false
+                    loading: true
                 } )
             } )
 
@@ -66,26 +81,27 @@ class Login extends React.Component {
 
 
 
-    onChangeFunc = ( event ) => {
+    const onChangeFunc = ( event ) => {
         console.log("VALUE: " , event.target.value)
-        this.setState( { [event.target.name]: event.target.value } )
+        setLoginFields( { ...loginFields, [event.target.name]: event.target.value } )
     }
+ 
 
-    render() {
-
-        const { username, password, error, loggedIn, isLoaded } = this.state;
+    const { username, password, error, loggedIn, loading } = loginFields;
 
          
-        if(isLoaded === false ) {
-            return(  <div className="container text-center text-white">loading...</div> )
+        if( loading === true ) {
+            return( <div className="container text-center ">loading...</div> )
         }
-    
+        
+        
 
         
-        if( loggedIn || localStorage.getItem('token') ) {
-            return <Redirect to="/dashboard" />
-        }
-        
+        if( store.token ) {
+            return <Redirect to={`/dashboard`} noThrow />
+        } else {
+            
+            
         return (
             <section >
                 <div className="container text-white">
@@ -94,7 +110,7 @@ class Login extends React.Component {
                     
                     { error ? <div className="alert alert-danger"> ${error} </div> : ' ' }
 
-                    <form onSubmit={ this.onSubmitForm }>
+                    <form onSubmit={ onSubmitForm }>
                         <div className="form-group">
                             <label>Username</label>
                             <input
@@ -102,7 +118,7 @@ class Login extends React.Component {
                                 className="form-control"
                                 name="username"
                                 value={username}
-                                onChange={this.onChangeFunc}
+                                onChange={ onChangeFunc }
                                 />
                         </div>
                         <div className="form-group">
@@ -113,7 +129,7 @@ class Login extends React.Component {
                                 placeholder="Enter Password"
                                 name="password"
                                 value={password}
-                                onChange={this.onChangeFunc}
+                                onChange={ onChangeFunc }
                                 />
                         </div>
                         <div className="form-group my-4">
@@ -122,8 +138,11 @@ class Login extends React.Component {
                     </form>
                 </div>
             </section>
-        )
-    }
+          )
+        }
+        
+
+
 }
 
 export default Login
