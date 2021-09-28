@@ -10,6 +10,12 @@ const apiHeaderCofig = {
 };
 
 
+const apiAuthOnly = {
+  headers: {
+      "Authorization" : `Bearer ${localStorage.getItem('token')}`
+  }
+};
+
 const sendMailHeaderConfig = {
   headers: { 
     'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -18,4 +24,4 @@ const sendMailHeaderConfig = {
 }
 
 export default authConfig;
-export { apiHeaderCofig, sendMailHeaderConfig };
+export { apiHeaderCofig, sendMailHeaderConfig, apiAuthOnly };
