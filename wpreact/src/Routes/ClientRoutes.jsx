@@ -3,6 +3,7 @@ import { Route } from "react-router"
 import PublicPosts from '../components/PublicPosts'
 import SinglePost from '../components/SinglePost'
 import Login from "../components/Login";
+import Contact from "../components/Contact";
 
 import Dashboard from "../components/Dashboard/Dashboard"
 import DashboardPosts from "../components/Dashboard/Posts/Posts"
@@ -26,6 +27,9 @@ const ClientRoutes = () => {
            <Login />
         </Route>
 
+        <Route exact path="/contact">
+           <Contact />
+        </Route>
  
         <Route exact path="/post/:id">
             <SinglePost />

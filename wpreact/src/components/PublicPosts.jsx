@@ -6,8 +6,8 @@ import PublicLayout from './layout/PublicLayout';
 
 
 const PublicPosts = () => {
-    
-	
+
+
 	const [postList, setPostList] = useState({
         posts: [],
         loading: true,
@@ -16,8 +16,6 @@ const PublicPosts = () => {
         paginationNumber: 1,
         totalPosts: 0
     });
-        
-
 
 
     

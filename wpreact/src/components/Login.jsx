@@ -94,13 +94,11 @@ const Login = () => {
 
     const { username, password, error, loggedIn, loading } = loginFields;
 
-         
+
         if( loading === true ) {
             return( <div className="container text-center ">loading...</div> )
         }
         
-        
-
         
         if( store.token ) {
             return <Redirect to={`/dashboard`} />
