@@ -1,4 +1,4 @@
-import React, { useState, setState, useEffect, useContext, useCallback } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import DashboardLayout from "../../layout/DashboardLayout";
 
 
@@ -8,7 +8,6 @@ import AppContext from '../../context/AppContext';
 
 const DashboardPosts = () => {
 
-	
 	const [postData, setPostData] = useState({
 			loading: true,
 			posts: [{"a":1}]

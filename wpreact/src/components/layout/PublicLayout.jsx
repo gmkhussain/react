@@ -5,7 +5,7 @@ const PublicLayout = ( props ) => {
     return(
         <React.Fragment>
             <Navbar />
-            <main className="main bg-dark">
+            <main className="main bg-dark text-white">
                 {props.children}
             </main>
         </React.Fragment>

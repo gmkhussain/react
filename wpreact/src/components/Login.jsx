@@ -30,7 +30,7 @@ const Login = () => {
             username: event.target.elements.username.value,
             password: event.target.elements.password.value
         }
-        console.log( loginInfo )
+        console.log( loginInfo, loggedIn )
 
         console.log(clientConfig.rootUrl)
 
