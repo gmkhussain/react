@@ -5,6 +5,7 @@ import SinglePost from '../components/SinglePost'
 import Login from "../components/Login";
 import Contact from "../components/Contact";
 import Products from "../components/Products";
+import ProductDetail from '../components/product/ProductDetail'
 
 import Dashboard from "../components/Dashboard/Dashboard"
 import DashboardPosts from "../components/Dashboard/Posts/Posts"
@@ -35,6 +36,9 @@ const ClientRoutes = () => {
         
         <Route exact path="/products">
            <Products />
+        </Route>
+        <Route exact path="/product/:id">
+            <ProductDetail />
         </Route>
         
         <Route exact path="/post/:id">
