@@ -1,0 +1,22 @@
+
+.table.text-white {
+    display: table;
+  }
+  .tr {
+    display: table-row;
+  }
+  .td {
+    display: table-cell;
+    border: 1px solid #ddd;
+  }
+  .tbody {
+    display: table-row-group;
+  }
+
+  .td p {
+    margin: 0;
+    font-size: 14px;
+  }
+  .td small {
+    font-size: 10px;
+}

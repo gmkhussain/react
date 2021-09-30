@@ -5,12 +5,14 @@ import SinglePost from '../components/SinglePost'
 import Login from "../components/Login";
 import Contact from "../components/Contact";
 import Products from "../components/Products";
+import Products_AuthRequired from "../components/Products_AuthRequired"
 import ProductDetail from '../components/product/ProductDetail'
 
 import Dashboard from "../components/Dashboard/Dashboard"
 import DashboardPosts from "../components/Dashboard/Posts/Posts"
 import Pages from '../components/Dashboard/pages/pages'
 import CreatePost from '../components/Dashboard/CreatePost'
+import PostEdit from '../components/Dashboard/Posts/PostEdit'
 
 import PublicLayout from "../components/layout/PublicLayout";
 
@@ -37,6 +39,11 @@ const ClientRoutes = () => {
         <Route exact path="/products">
            <Products />
         </Route>
+
+
+        <Route exact path="/products-auth">
+           <Products_AuthRequired />
+        </Route>
         <Route exact path="/product/:id">
             <ProductDetail />
         </Route>
@@ -54,6 +61,10 @@ const ClientRoutes = () => {
 
         <Route exact path="/dashboard/posts">
           <DashboardPosts/>
+        </Route>
+
+        <Route exact path="/dashboard/post/edit/:id">
+          <PostEdit/>
         </Route>
 
         <Route exact path="/dashboard/pages">
