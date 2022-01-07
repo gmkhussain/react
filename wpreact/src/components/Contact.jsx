@@ -35,12 +35,12 @@ const Contact = () => {
 
     const onSubmitFunc = (e) => {
         e.preventDefault()
-        
+
         bodyFormData.append('your-name', formData.name);
         bodyFormData.append('your-email', formData.email);
         bodyFormData.append('your-subject', formData.subject);
         bodyFormData.append('your-message', formData.message);
-        
+
         sendMail()
         console.log(formData)
     }

@@ -2444,3 +2444,29 @@ class Header extends Component {
 	}
 }
 ```
+
+
+
+
+
+
+
+## Add Dynamic class with Static class
+
+style names according base on condition
+```js
+<div className={'myStaticClass ' + ( condition ? " myClass" : " anotherClass")'}>
+  //...content
+</div>
+```
+
+with css modules.
+
+```js
+//...
+return (
+  <div className={`myStaticClass ${styles.moduleClass} ${(condition ? ' myClass' : ' anotherClass')`}>
+	//...content
+  </div>
+)
+```
