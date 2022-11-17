@@ -17,8 +17,6 @@ export const FontsLoad = async ( fonts=['ThisFontNotFounded', 'Arial'] , callbac
 import { FontsLoad } from "Components/FontsLoad/FontsLoad";
 
 //...
-    FontsLoad(
-      ['Arial','FONT_NOT_FOUNDED'], 
-    )
+    FontsLoad( ['Arial','FONT_NOT_FOUNDED'], ()=>anyCallbackFunction(param) )
 //...
 ```
