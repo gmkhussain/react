@@ -2470,3 +2470,73 @@ return (
   </div>
 )
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+### Setting
+#### .env
+```js
+REACT_APP_DOMAIN=something.com |OR| localhost
+REACT_APP_RUN_AS_LOCALHOST=true
+```
+
+
+### ConsoleLog.js
+```js
+import { useEffect } from "react";
+import Setting from "./Setting";
+
+const ConsoleLogSetting = ( ) => {
+    useEffect( ()=> {
+        if(!Setting.consoleLog) {
+            console.log = function() {} 
+            console.warn = function() {} 
+            console.error = function() {}
+        }
+    }, [])
+}
+
+export default ConsoleLogSetting;
+```
+
+
+
+#### Setting.js
+```js
+import ConsoleLogSetting from "./ConsoleLog";
+const domain = process.env.REACT_APP_DOMAIN;
+const isLocal = process.env.REACT_APP_RUN_AS_LOCALHOST;
+
+const Setting = {
+    somethingAlert: false,
+    consoleLog: true,
+	localhost: isLocal,
+    domain: !isLocal ? '.'+domain : domain,
+  }
+
+export default Setting;
+
+export {
+  ConsoleLogSetting
+}
+```
+
+
+## Usage
+#### ANY_COMPONENT.JS
+```js
+//..
+    <ConsoleLogSetting />
+	
+	{ Setting.localhost ? "is localhost" : "is domain" }
+//..
+```
