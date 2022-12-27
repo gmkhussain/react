@@ -50,6 +50,9 @@ ESLint
 </table>
 
 
+Index
+- <a href="#setting">Setting</a>
+
 
 ## Get Started with ReactJS CLI ⚛️
 
@@ -2482,7 +2485,7 @@ return (
 
 
 
-### Setting
+## Setting
 #### .env
 ```js
 REACT_APP_DOMAIN=something.com |OR| localhost
